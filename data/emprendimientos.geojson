@@ -5,6 +5,291 @@
   "features": [
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.64472, -42.39936] },
+      "properties": {
+        "codigo_ficha": "EC-01-CV",
+        "nombre_emprendedor": "Mirna Oritia Aguilante Muñoz",
+        "rut": "14.230.774-K",
+        "nombre_emprendimiento": "Cabañas y Camping Frente al Mar",
+        "rubro_principal": "Hospedaje familiar/rural (cabañas y camping)",
+        "categoria": "hospedaje",
+        "ubicacion_sector": "Sector rural San Javier, Curaco de Vélez",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Ubicación y paisaje como activo diferenciador real: acceso privado a playa, vista panorámica del archipiélago y camino de acceso en excelente estado",
+          "Mirada de conservación genuina y poco común en el grupo de emprendedores: cuida y reforesta activamente el bosque nativo y los arrayanes de su predio, con potencial de sendero interpretativo hacia el mar"
+        ],
+        "brechas_equipamiento": [
+          "Mobiliario y equipamiento de cabañas con signos de falta de mantención y antigüedad, lo que hoy limita su categorización (estimado en 1-2 estrellas pese al potencial de ubicación y experiencia)",
+          "Bosque nativo y sendero hacia la playa sin señalética ni infraestructura interpretativa habilitada — recurso de alto valor actualmente subutilizado como producto turístico",
+          "Sistema fotovoltaico existente (paneles solares) sin inversor ni baterías, lo que limita su aprovechamiento como respaldo energético ante cortes de suministro por temporal/viento"
+        ],
+        "brechas_normativas": [
+          "Patente municipal actualmente en trámite (no regularizada aún)",
+          "Formalización de personal pendiente: el apoyo familiar en temporada alta (su hija) se realiza de manera informal, sin contrato"
+        ],
+        "potencial_integracion": "Con el sendero interpretativo bosque nativo–arrayanes–playa desarrollado, puede constituirse en un punto neurálgico de la ruta para el eje de naturaleza y conservación, complementando la oferta de alojamiento con una experiencia hoy inexistente en el resto del circuito.",
+        "necesidad_inversion": "Inversor y banco de baterías para el sistema fotovoltaico existente; renovación de equipamiento textil (ropa de cama) para 4 cabañas.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "01_PI_Mirna_Aguilante.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60685, -42.43211] },
+      "properties": {
+        "codigo_ficha": "EC-02-CV",
+        "nombre_emprendedor": "Roxana Andrea Mancilla Bórquez",
+        "rut": "13.408.787-0",
+        "nombre_emprendimiento": "Contacto Natural",
+        "rubro_principal": "Hospedaje (complejo turístico: cabañas y domos, enfoque bienestar)",
+        "categoria": "hospedaje",
+        "ubicacion_sector": "Changüitad km 1, Curaco de Vélez",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Oferta de alojamiento diversificada y de enfoque bienestar: 4 cabañas y 2 domos con jacuzzi, complementados con sauna, tinaja al aire libre y espacio para terapias alternativas — combinación poco replicada en el resto de la ruta",
+          "Entorno paisajístico cuidado y articulación externa ya activa: bosquete de arrayanes, jardines de estilo japonés, proximidad al humedal (250 m) y vínculo declarado con las pingüineras de Puñihuil, uno de los atractivos de mayor reconocimiento nacional de Chiloé"
+        ],
+        "brechas_equipamiento": [
+          "Aislamiento térmico deficiente en las cabañas: son frías en temporada invernal y el aire acondicionado actual no resulta efectivo para el clima de la zona",
+          "Diseño de baño con problemas ergonómicos de circulación en las cabañas (puerta que topa con dispensador y no abre completamente)",
+          "Riesgo de seguridad constatado en visita técnica: obstáculo de madera al inicio de una rampa de acceso, con riesgo real de tropiezo"
+        ],
+        "brechas_normativas": [
+          "Sin patente municipal",
+          "Sin formalización de personal, pese a contar con 3 personas trabajando de forma regular",
+          "Registro Nacional de Prestadores SERNATUR no se encuentra al día"
+        ],
+        "potencial_integracion": "Actúa como nodo de bienestar y naturaleza de la ruta, articulado con el humedal y las pingüineras de Puñihuil; funciona además como vitrina física colectiva de artesanía, libros e ilustraciones de terceros.",
+        "necesidad_inversion": "2 estufas a pellet para cabañas; cafetera profesional (activación de local tipo almacén como cafetería); vitrina de exhibición para productos locales.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "02_PI_Roxana_Mancilla.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60453, -42.44100] },
+      "properties": {
+        "codigo_ficha": "EC-03-CV",
+        "nombre_emprendedor": "Roxana Vásquez Alarcón",
+        "rut": "13.594.114-K",
+        "nombre_emprendimiento": "Embrujo (Jugos Naturales y Café)",
+        "rubro_principal": "Alimentación/gastronomía (jugos naturales y café)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Avenida del Mar 4, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Ubicación privilegiada y de fácil acceso, con terraza que permite atender simultáneamente a grupos de 15 a 18 personas y vista directa al humedal — infraestructura ya evaluada en el máximo nivel (5/5) por el equipo consultor",
+          "Calidad de atención al cliente y trayectoria consolidada: opera desde 2009, con formación como educadora de párvulos que le otorga herramientas destacadas de trato con público"
+        ],
+        "brechas_equipamiento": [
+          "Sin equipamiento de cafetera profesional, pese a que el café forma parte central de la propuesta del negocio (\"jugos naturales y café\")",
+          "Terraza sin protección ante viento: ráfagas pueden afectar puntualmente la comodidad del espacio exterior, parte central de la experiencia de consumo"
+        ],
+        "brechas_normativas": [
+          "Patente municipal en trámite (no regularizada aún)",
+          "Formalización de personal pendiente: el apoyo familiar (hija y esposo) en temporada alta se realiza de manera informal"
+        ],
+        "potencial_integracion": "Parada corta y versátil, compatible con distintos ejes temáticos de la ruta (naturaleza por su vista al humedal, gastronomía local); alto potencial fotográfico para la difusión de toda la ruta. Mismo predio familiar que Restaurante Bahía (EC-04-CV), con sinergia física ya activa (comida completa + jugos/postre).",
+        "necesidad_inversion": "Cafetera profesional.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "03_PI_Roxana_Vasquez.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60475, -42.44103] },
+      "properties": {
+        "codigo_ficha": "EC-04-CV",
+        "nombre_emprendedor": "Nelly Alarcón Mancilla",
+        "rut": "8.898.431-5",
+        "nombre_emprendimiento": "Restaurante Bahía",
+        "rubro_principal": "Alimentación/gastronomía (restaurante)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Avenida del Mar 6, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Trayectoria y posicionamiento consolidado: más de 25 años de funcionamiento continuo (desde 1999), con capacidad de atención relevante (60 personas/día) y un equipo de 6 personas — uno de los establecimientos con mayor capacidad operativa de la ruta",
+          "Formalización más avanzada que el promedio del grupo: patente municipal, inicio de actividades SII, Registro SERNATUR vigente y resolución sanitaria, además de sinergia física ya activa con Jugos Embrujo (mismo predio familiar)"
+        ],
+        "brechas_equipamiento": [
+          "Sin accesibilidad para personas con movilidad reducida, pese a contar con una capacidad instalada relevante",
+          "Operación limitada a temporada estival (diciembre-marzo) pese a tener capacidad instalada para operar todo el año, sin equipamiento de calefacción que permita extender la temporada"
+        ],
+        "brechas_normativas": [
+          "Informalidad parcial en la contratación de personal, pese a tener el resto de la formalización resuelta — brecha relevante dado el tamaño del equipo (6 personas)"
+        ],
+        "potencial_integracion": "Por su capacidad de atención y trayectoria, potencial de posicionarse como \"nodo gastronómico ancla\" de la ruta, complementando su oferta con la de Jugos Embrujo (EC-03-CV) en el mismo predio.",
+        "necesidad_inversion": "Sistema de calefacción (estufas a pellet) para el salón comedor; rampa de acceso para personas con movilidad reducida; servicio de fotografía y video profesional.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "04_PI_Nelly_Alarcon.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60428, -42.44089] },
+      "properties": {
+        "codigo_ficha": "EC-05-CV",
+        "nombre_emprendedor": "Francisca Vásquez",
+        "rut": "15.291.200-5",
+        "nombre_emprendimiento": "Restaurante Los Troncos (Ostras)",
+        "rubro_principal": "Alimentación/gastronomía (restaurante y cultivo/venta de ostras)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Avenida del Mar, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Producto ícono y diferenciador de la comuna: las ostras de Los Troncos son la marca gastronómica más reconocida de Curaco de Vélez, con integración productiva completa (cultivo y venta directa) y casi 40 años de trayectoria (desde 1986)",
+          "Escala operativa la más alta del grupo relevado: capacidad para 100 personas/día y hasta 17 trabajadores en temporada alta, funcionando como \"patio gastronómico familiar\" con múltiples estaciones (ostras, ceviche, empanadas, jugos, helados)"
+        ],
+        "brechas_equipamiento": [
+          "Necesidad de inversión en mobiliario básico (mesas y sillas) ya identificada explícitamente por la propia emprendedora",
+          "Accesibilidad sólo parcial para personas con movilidad reducida, pese a ser uno de los puntos gastronómicos de mayor relevancia y probabilidad de recibir turismo internacional de la ruta"
+        ],
+        "brechas_normativas": [
+          "Formalización parcial de personal: contratación familiar y externa, pero de forma parcialmente informal, pese a tener el mayor equipo de trabajadores (17 personas) del grupo evaluado"
+        ],
+        "potencial_integracion": "Con su producto ícono ya reconocido a nivel comunal y su modelo de patio gastronómico multi-oferta, potencial de posicionarse como la experiencia gastronómica insignia (\"producto ancla\") de toda la ruta.",
+        "necesidad_inversion": "8 sets de mobiliario (mesas y sillas) para patio gastronómico; mejora de accesibilidad (rampa/acceso); servicio de fotografía y video profesional.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "05_PI_Francisca_Vasquez.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60100, -42.44062] },
+      "properties": {
+        "codigo_ficha": "EC-06-CV",
+        "nombre_emprendedor": "Lorenzo Artemio Paredes Gallardo",
+        "rut": "5.096.338-2",
+        "nombre_emprendimiento": "Restaurante Miramar",
+        "rubro_principal": "Alimentación/gastronomía (restaurante tradicional)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Galvarino Rivero 01, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Ubicación privilegiada (dos cuadras de la plaza, alta afluencia) y trayectoria histórica de casi 50 años (desde 1977), reconocido por recomendación directa (\"dato\") más que por estrategia de difusión formal",
+          "Valor patrimonial y testimonial de alto reconocimiento (4/5 en compatibilidad con la identidad de la ruta), como testimonio vivo de la evolución social y comercial de Curaco de Vélez"
+        ],
+        "brechas_equipamiento": [
+          "Mobiliario del espacio de atención sin renovación reciente (3/5 en infraestructura)",
+          "Accesorios de baño desactualizados (taza, lavamanos), necesidad identificada explícitamente por los propios beneficiarios",
+          "Sin equipamiento de televisor en el espacio de atención, necesidad identificada explícitamente por los propios beneficiarios"
+        ],
+        "brechas_normativas": [
+          "Patente municipal en trámite (no regularizada aún)",
+          "Personal familiar de apoyo sin formalización"
+        ],
+        "potencial_integracion": "Funciona como parada breve de alto valor testimonial dentro del circuito, sin necesidad de competir con restaurantes de mayor oferta gastronómica — su aporte principal es el relato histórico y patrimonial de casi 50 años de funcionamiento continuo.",
+        "necesidad_inversion": "Televisor (Smart TV ~43\"); juego de living para espacio de atención; accesorios para renovación de baño.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "06_PI_Artemio_Paredes.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.60054, -42.44104] },
+      "properties": {
+        "codigo_ficha": "EC-07-CV",
+        "nombre_emprendedor": "Juan Antonio Díaz Subiabre",
+        "rut": "8.096.527-3",
+        "nombre_emprendimiento": "Restaurante Royal",
+        "rubro_principal": "Alimentación/gastronomía (comida casera tipo \"picada\")",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Las Ánimas 6B, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Único local tipo \"picada\" de comida casera y económica de todo el sector centro, operando todo el año desde hace 43 años, con formalización prácticamente completa (5/5)",
+          "Estacionamiento para bicicletas ya disponible, atributo diferenciador poco común en la ruta y de alto valor para el segmento de cicloturistas que recorren Chiloé en temporada estival"
+        ],
+        "brechas_equipamiento": [
+          "Riesgo de seguridad relevante en la escalera de acceso (madera, empinada), resbaladiza en condiciones de escarcha o helada — principal factor de la baja resiliencia climática evaluada (2/5)",
+          "Cocina sin lavaplatos profundo ni mesón de acero inoxidable con cajones, identificado por los propios beneficiarios como vital para las condiciones de trabajo e inocuidad alimentaria",
+          "Mobiliario del local sin renovación reciente (3/5 en infraestructura)",
+          "Estacionamiento de bicicletas sin señalética ni comunicación visible que lo promocione ante el turista cicloturista"
+        ],
+        "brechas_normativas": [
+          "Personal de apoyo familiar sin formalización de contrato"
+        ],
+        "potencial_integracion": "Cubre un nicho gastronómico —tipo \"picada\"— ausente en el resto de la ruta, con potencial de posicionarse específicamente ante el segmento de cicloturistas gracias a su estacionamiento de bicicletas ya disponible.",
+        "necesidad_inversion": "Lavaplatos profundo y mesón de acero inoxidable con cajones; superficie antideslizante y pasamanos reforzado para la escalera de acceso; renovación de mobiliario (20 sillas).",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "07_PI_Juan_Diaz.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.59548, -42.43942] },
+      "properties": {
+        "codigo_ficha": "EC-08-CV",
+        "nombre_emprendedor": "Ramón Bernardo Sotomayor González",
+        "rut": "4.621.051-4",
+        "nombre_emprendimiento": "Cabañas Río de Vélez",
+        "rubro_principal": "Hospedaje familiar/rural (cabañas)",
+        "categoria": "hospedaje",
+        "ubicacion_sector": "Galvarino Riveros 145, Curaco de Vélez centro",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Ubicación estratégica excepcional en el punto de bifurcación de acceso a Curaco de Vélez (hacia el pueblo y hacia Achao), con camino pavimentado y excelente conectividad general",
+          "Manejo de idiomas como diferenciador poco común en la ruta: atención en alemán e inglés durante temporada estival, gracias a una nieta profesora de idiomas, junto con operación todo el año"
+        ],
+        "brechas_equipamiento": [
+          "Sin equipamiento de climatización (aire acondicionado), necesidad identificada explícitamente por los propios beneficiarios y marcada como prioridad de inversión",
+          "Accesibilidad limitada a solo una de las tres cabañas (las dos pequeñas son de dos pisos, sin acceso universal)"
+        ],
+        "brechas_normativas": [
+          "Patente municipal en trámite",
+          "Registro Nacional de Prestadores SERNATUR sin confirmar",
+          "Personal de apoyo sin formalización"
+        ],
+        "potencial_integracion": "Su ubicación en la bifurcación hacia Curaco y Achao la posiciona idealmente como punto de conexión entre destinos del archipiélago, funcionando como base de alojamiento para quienes recorren varios puntos de la ruta.",
+        "necesidad_inversion": "Equipo de climatización (2 split frío/calor); alternativa: extractores de aire solar + renovación de equipamiento textil para cabañas.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "08_PI_Ramon_Sotomayor.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.53090, -42.42906] },
+      "properties": {
+        "codigo_ficha": "EC-09-CV",
+        "nombre_emprendedor": "Paola López Contreras",
+        "rut": "16.620.038-5",
+        "nombre_emprendimiento": "Bosque Palqui",
+        "rubro_principal": "Turismo científico/naturaleza (guiado y experiencias de conservación)",
+        "categoria": "guiado",
+        "ubicacion_sector": "Sector Palqui, Curaco de Vélez",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Recurso natural único y de alto valor de conservación: 14 hectáreas de bosque nativo templado lluvioso, ecosistema escaso en las islas menores del archipiélago, con oferta experiencial diversa (avistamiento de aves, monito del monte, turismo fungi, observación de vida microscópica)",
+          "Único punto de ciencia ciudadana internacional de la ruta: primera división de Chile del programa NestWatch (Cornell Lab of Ornithology), con monitoreo activo de nidos y capacidad de capacitar a terceros"
+        ],
+        "brechas_equipamiento": [
+          "Circuito de senderos aún incompleto: dos senderos en proceso, pendiente la contratación de mano de obra para terminarlos",
+          "Sendero educativo sin señalética interpretativa desarrollada",
+          "Necesidad de ampliar la infraestructura de casas anideras para expandir la capacidad de monitoreo del programa NestWatch"
+        ],
+        "brechas_normativas": [
+          "Sin patente municipal",
+          "Sin formalización de personal",
+          "Registro Nacional de Prestadores SERNATUR a nombre de la pareja y no del emprendimiento"
+        ],
+        "potencial_integracion": "Con su vínculo a NestWatch y su modelo de conservación activa, potencial de posicionar a toda la ruta como destino de turismo científico/birdwatching internacional; funciona ya como \"hub de naturaleza\" que atrae visitantes desde fuera del archipiélago de Quinchao. Colindante con Parque Aventura Chiloé (EC-10-CV): potencial circuito conjunto naturaleza + aventura.",
+        "necesidad_inversion": "Cámara trampa, microscopio óptico, binoculares, lupas y bastones de trekking para talleres educativos y experiencias guiadas; bomba pulverizadora para bioseguridad de senderos; guías de identificación de flora y fauna.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "09_PI_Paola_Lopez.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [-73.5333293, -42.4258145] },
       "properties": {
         "codigo_ficha": "EC-10-CV",
@@ -29,7 +314,7 @@
         "brechas_normativas": [
           "Exposición a viento/temporal por tratarse de actividad de altura (canopy); sin evidencia de protocolo formal de suspensión basado en mediciones objetivas"
         ],
-        "potencial_integracion": "Colindante con Bosque Palqui (Paola López), con potencial de circuito conjunto naturaleza + aventura.",
+        "potencial_integracion": "Colindante con Bosque Palqui (EC-09-CV, Paola López), con potencial de circuito conjunto naturaleza + aventura.",
         "necesidad_inversion": "Ampliación de arneses de seguridad certificados para canopy/zip-line.",
         "sitio_web": "https://www.paventurachiloe.cl",
         "estado_ficha": "completa",
@@ -124,7 +409,7 @@
           "Registro Nacional de Prestadores SERNATUR sin confirmar",
           "Personal de apoyo sin formalización"
         ],
-        "potencial_integracion": "Opción gastronómica premium de la ruta; articulación narrativa con emprendimientos ostricultores (como Los Troncos) sumando identidad gastronómica marina.",
+        "potencial_integracion": "Opción gastronómica premium de la ruta; articulación narrativa con emprendimientos ostricultores (Los Troncos, EC-05-CV) sumando identidad gastronómica marina.",
         "necesidad_inversion": "Estufa a pellet (100 m²) con kit de instalación de techo.",
         "sitio_web": null,
         "estado_ficha": "completa",

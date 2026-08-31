@@ -8,13 +8,15 @@ const CATEGORY_COLORS = {
     aventura: '#2e7d32',
     gastronomia: '#d84315',
     guiado: '#1565c0',
+    hospedaje: '#00838f',
     bienestar: '#6a1b9a'
 };
 
 const CATEGORY_LABELS = {
     aventura: 'Turismo aventura',
     gastronomia: 'Gastronomía',
-    guiado: 'Guiado / Miradores',
+    guiado: 'Guiado / Naturaleza',
+    hospedaje: 'Hospedaje',
     bienestar: 'Bienestar / Terapéutico'
 };
 
@@ -199,11 +201,8 @@ function renderPendientes(data) {
         container.appendChild(card);
     });
 
-    const missing = data.sin_ficha_recibida;
-    if (missing) {
-        const note = document.getElementById('missingNote');
-        note.innerHTML = `<strong>Fichas aún no recibidas (${missing.codigos_faltantes.length}):</strong> ${missing.codigos_faltantes.join(', ')}. ${missing.descripcion}`;
-    }
+    const note = document.getElementById('missingNote');
+    note.textContent = data.descripcion || '';
 }
 
 function setupCategoryFilters() {
@@ -244,8 +243,7 @@ async function loadData() {
     allFeatures = geo.features;
 
     document.getElementById('countGeolocalizados').textContent = allFeatures.length;
-    document.getElementById('countPendientes').textContent =
-        (pend.sin_coordenadas || []).length + (pend.sin_ficha_recibida ? pend.sin_ficha_recibida.codigos_faltantes.length : 0);
+    document.getElementById('countPendientes').textContent = (pend.sin_coordenadas || []).length;
 
     renderMarkers();
     renderSidebarList();

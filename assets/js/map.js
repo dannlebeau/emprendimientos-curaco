@@ -2,7 +2,29 @@
  * Emprendimientos-Curaco — Mapa de la Ruta "Explora Curaco"
  * Programa de Fortalecimiento de la Oferta Turística Local
  * Municipalidad de Curaco de Vélez — Contrato de Consultoría ID 3285-4-L126
+ *
+ * Elaborado por Dann LeBeau × Geopolis (geopolis.cl)
  */
+
+//=============== FIRMA Y CLICK DERECHO ===============//
+// Bloquea el menú contextual (click derecho). No impide ver el código con
+// F12/Ctrl+U -- ningún sitio puede evitar eso -- pero saca el atajo directo.
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+// Propiedad oculta (no enumerable: no aparece en console.log(window),
+// Object.keys ni JSON.stringify) como huella de autoría en el código fuente.
+Object.defineProperty(window, '__fingerprint__', {
+    value: 'Emprendimientos-Curaco · Ruta Explora Curaco · Elaborado por Dann LeBeau × Geopolis (geopolis.cl)',
+    enumerable: false,
+    writable: false,
+    configurable: false
+});
+
+console.log(
+    '%cGeopolis %c· Emprendimientos Curaco — Ruta Explora Curaco\nElaborado por Dann LeBeau × Geopolis\nhttps://dannlebeau.github.io/ownroute.github.io/ · https://www.geopolis.cl',
+    'color:#00838f; font-weight:bold; font-size:14px;',
+    'color:#263238; font-size:12px;'
+);
 
 const CATEGORY_COLORS = {
     aventura: '#2e7d32',
@@ -34,11 +56,6 @@ function initMap() {
     // Capas base gratuitas (sin API key). maxNativeZoom evita el cartel
     // "Map data not yet available" de Esri más allá de su zoom nativo:
     // Leaflet reescala el último tile en vez de pedir uno inexistente.
-    const cartoDBPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: '© CartoDB, © OpenStreetMap',
-        maxZoom: 19
-    });
-
     const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap',
         maxZoom: 19
@@ -70,14 +87,28 @@ function initMap() {
         'Esri Satelital': esriWorldImagery,
         'Esri Topográfico': esriWorldTopo,
         'OpenTopoMap': openTopoMap,
-        'CartoDB Claro': cartoDBPositron,
         'OpenStreetMap': openStreetMap
     };
 
     L.control.layers(baseMaps, null, { position: 'topright', collapsed: true }).addTo(map);
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.control.zoom({ position: 'bottomleft' }).addTo(map);
+    addLegend();
 
     markersLayer = L.layerGroup().addTo(map);
+}
+
+function addLegend() {
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'map-legend');
+        const rows = Object.keys(CATEGORY_LABELS).filter(cat => cat !== 'bienestar').map(cat =>
+            `<div class="legend-row"><span class="legend-dot" style="background:${CATEGORY_COLORS[cat]}"></span>${CATEGORY_LABELS[cat]}</div>`
+        ).join('');
+        div.innerHTML = `<div class="legend-title">Leyenda</div>${rows}`;
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+    };
+    legend.addTo(map);
 }
 
 function makeIcon(categoria) {

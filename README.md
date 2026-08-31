@@ -1,97 +1,181 @@
 # Emprendimientos-Curaco
 
-Mapa interactivo de los emprendimientos turísticos de la Ruta **"Explora
-Curaco"**, Programa de Fortalecimiento de la Oferta Turística Local —
-Municipalidad de Curaco de Vélez (Contrato de Consultoría ID 3285-4-L126).
+**Mapa interactivo de la Ruta "Explora Curaco"** — visualización georreferenciada
+de los emprendimientos turísticos relevados en el marco del **Programa de
+Fortalecimiento de la Oferta Turística Local**, Municipalidad de Curaco de
+Vélez, Chiloé (Contrato de Consultoría ID 3285-4-L126).
 
-Proyecto independiente (no depende de `interfaz_huella_local`).
+Sitio estático, sin backend ni build step: es HTML/CSS/JS puro sobre
+[Leaflet](https://leafletjs.com/), con los datos en GeoJSON/JSON planos.
+Proyecto independiente — no depende de ningún otro repositorio.
 
-## ⚠ Estado de los datos
+---
 
-Las **16 fichas** del programa (EC-01 a EC-16) ya fueron recibidas y
-revisadas contra el documento original de cada una:
+## Qué es esto
 
-| Estado | Cantidad | Detalle |
+La consultora levantó una ficha técnica por cada emprendimiento de la ruta:
+quién es el beneficiario, dónde está, cuáles son sus fortalezas, qué brechas
+de equipamiento o normativas tiene, y qué inversión se propone para cerrarlas.
+Este proyecto toma esas 16 fichas y las convierte en:
+
+1. Una **base de datos georreferenciada** en formato estándar (GeoJSON),
+   reutilizable en Google My Maps, QGIS, ArcGIS o cualquier otro SIG.
+2. Un **mapa interactivo** para explorarlas visualmente, con toda la
+   información de cada ficha disponible en un clic.
+
+## Estado de los datos
+
+Las **16 fichas** del programa (EC-01 a EC-16) fueron recibidas y revisadas
+una por una contra el documento original — cada dato (RUT, coordenadas,
+fortalezas, brechas) se extrajo del texto del PDF y, en los casos donde la
+primera lectura no fue confiable, se verificó con una segunda extracción de
+texto independiente (`pdftotext`) antes de publicarse. **No hay ninguna
+coordenada ni dato inventado.**
+
+| Estado | Cantidad | Códigos |
 |---|---|---|
-| Geolocalizados en el mapa | 14 | EC-01 a EC-10, EC-12, EC-13, EC-15, EC-16 |
-| Con ficha completa pero sin coordenadas | 2 | EC-11 (operación itinerante, sin dirección fija), ficha de Patricia Vargas (borrador incompleto: sin código, nombre, RUT ni ubicación) |
+| ✅ Geolocalizados en el mapa | **14** | EC-01 a EC-10, EC-12, EC-13, EC-15, EC-16 |
+| ⚠️ Con ficha completa pero sin coordenadas | **2** | EC-11 (Kumelawen Spa — operación itinerante, sin dirección fija), ficha de Patricia Vargas (borrador incompleto: sin código, nombre, RUT ni ubicación) |
 
-**No se inventó ninguna coordenada ni dato faltante.** Todos los valores
-(RUT, coordenadas, fortalezas, brechas) se extrajeron directamente del texto
-de cada PDF y se verificaron con una segunda extracción independiente
-(`pdftotext`) antes de publicarse.
+Estos 2 casos no se ocultan: aparecen en un panel aparte del sidebar
+("Pendientes de geolocalizar") con el motivo exacto de por qué no están en
+el mapa. La coordenada de EC-12 (Muelle Chonos) viene marcada en su ficha
+original como *"[verificar con beneficiaria]"* — se incluyó de todas formas
+por ser la única disponible, marcada con `coordenadas_verificadas: false`.
 
-La coordenada de EC-12 (Muelle Chonos) viene marcada en su ficha original
-como *"[verificar con beneficiaria]"* — se incluyó igual porque es la única
-disponible, con `coordenadas_verificadas: false` en el dato.
+## Funcionalidades
 
-## 📁 Estructura
+- **Mapa base gratuito, sin API key**: selector con 4 capas (arriba a la
+  derecha) — Esri Satelital (por defecto, útil para reconocer accesos
+  rurales y relieve real), Esri Topográfico, OpenTopoMap y OpenStreetMap.
+- **Zoom** abajo a la izquierda · **Leyenda de categorías** abajo a la
+  derecha.
+- **Filtro por rubro** en el sidebar: Aventura, Gastronomía, Guiado /
+  Naturaleza, Hospedaje — togglea qué categorías se muestran en el mapa y en
+  la lista.
+- **Ficha completa por emprendimiento** (clic en el mapa o en la lista del
+  sidebar): nombre, rubro, ubicación, fortalezas, brechas de equipamiento y
+  normativas, necesidad de inversión propuesta, y potencial de integración
+  con otros puntos de la ruta.
+- **"Cómo llegar"**: cada punto enlaza directo a direcciones de Google Maps
+  (`google.com/maps/dir/?api=1&destination=lat,lng`) — no requiere abrir la
+  app de Maps por separado ni buscar la dirección a mano.
+- **100% responsivo**: el sidebar se colapsa a pantalla completa en celular,
+  el mapa ocupa toda la ventana.
+
+## Estructura del proyecto
 
 ```
 Emprendimientos-Curaco/
-├── index.html                              # Mapa principal
-├── data/
-│   ├── emprendimientos.geojson             # Base georreferenciada (GeoJSON estándar,
-│   │                                          EPSG:4326) — compatible con Google My Maps
-│   │                                          y cualquier software SIG (QGIS, ArcGIS, etc.)
-│   └── emprendimientos_pendientes.json     # Emprendimientos sin coordenadas + registro
-│                                              explícito de lo que falta por levantar
+├── index.html                              Página única de la aplicación
 ├── assets/
-│   ├── css/style.css
-│   └── js/map.js
-└── README.md
+│   ├── css/style.css                       Estilos (tema, sidebar, popups, leyenda)
+│   └── js/map.js                           Lógica del mapa (Leaflet, filtros, popups)
+├── data/
+│   ├── emprendimientos.geojson             Base georreferenciada — los 14 puntos del mapa
+│   └── emprendimientos_pendientes.json     Los 2 emprendimientos sin coordenadas
+└── README.md                               Este archivo
 ```
 
-## ✨ Qué incluye esta primera versión
+No hay `node_modules` ni pasos de compilación: Leaflet se carga desde CDN
+(`unpkg.com`) y el resto es JavaScript vanilla.
 
-- **Base de datos georreferenciada** en GeoJSON estándar (`data/emprendimientos.geojson`):
-  se puede importar directo en [Google My Maps](https://mymaps.google.com)
-  (Importar → arrastrar el archivo) o en cualquier SIG (QGIS, ArcGIS, etc.).
-- **Mapa interactivo responsivo** (Leaflet), funciona en escritorio y móvil,
-  con selector de **5 mapas base gratuitos** (sin API key, arriba a la
-  derecha): Esri Satelital (por defecto — útil para ver accesos rurales y
-  relieve real), Esri Topográfico, OpenTopoMap, CartoDB Claro y OpenStreetMap.
-- **Filtro por rubro** (aventura / gastronomía / guiado-naturaleza / hospedaje).
-- **Popup por emprendimiento** con: nombre, rubro, ubicación, fortalezas,
-  brechas de equipamiento y normativas, necesidad de inversión y potencial de
-  integración a la ruta — toda la información descriptiva ya registrada en
-  cada ficha.
-- **Navegación directa a Google Maps** ("Cómo llegar") desde cada punto,
-  usando `https://www.google.com/maps/dir/?api=1&destination=lat,lng`.
-- **Panel de pendientes**: lista aparte de los 2 emprendimientos con ficha
-  pero sin coordenadas (EC-11 y la ficha de Patricia Vargas), para que quede
-  explícito qué falta en vez de omitirlo silenciosamente.
+## Cómo verlo
 
-## 🚧 Qué NO incluye todavía (deliberadamente)
+Como usa `fetch()` para cargar los archivos `.geojson`/`.json`, **no se
+puede abrir `index.html` directamente con doble clic** (el navegador
+bloquea `fetch` sobre `file://`). Hay que servirlo con cualquier servidor
+estático local, por ejemplo:
 
-- **Análisis territorial integrado** (conectividad entre atractivos, tiempos
-  reales de desplazamiento considerando caminos rurales y trasbordos,
-  accesibilidad universal): en esta versión el mapa solo muestra la
-  información de accesibilidad ya descrita en cada ficha (ej. "acceso
-  completo en vehículo", "accesibilidad solo parcial"). No se calculan
-  tiempos de ruta ni se integra un motor de rutas — eso requiere decidir con
-  qué servicio (OSRM, Google Directions API, etc.) y si implica costo/API key.
-- La ficha de Patricia Vargas, que sigue en borrador (sin nombre completo,
-  RUT, ubicación ni coordenadas) — falta que el municipio o la consultora la
-  completen.
+```bash
+# Opción 1: Python (viene instalado en casi cualquier equipo)
+cd Emprendimientos-Curaco
+python -m http.server 8000
+# abrir http://localhost:8000
 
-## 🔧 Cómo agregar un emprendimiento nuevo
+# Opción 2: Node
+npx serve .
+```
 
-1. Si tiene coordenadas confirmadas: agregar un `Feature` nuevo en
-   `data/emprendimientos.geojson`, siguiendo la misma estructura de
-   `properties` que los existentes (`codigo_ficha`, `nombre_emprendedor`,
-   `rut`, `nombre_emprendimiento`, `rubro_principal`, `categoria` —
-   `aventura` | `gastronomia` | `guiado` | `hospedaje` | `bienestar` —,
-   `ubicacion_sector`, `fortalezas`, `brechas_equipamiento`,
-   `brechas_normativas`, `potencial_integracion`, `necesidad_inversion`,
-   `sitio_web`, `estado_ficha`, `fuente_documento`). Recordar que GeoJSON usa
-   `[longitud, latitud]` (no al revés).
-2. Si aún no tiene coordenadas (como la ficha de Patricia Vargas): agregarlo
-   al array `sin_coordenadas` de `data/emprendimientos_pendientes.json`.
+O bien publicarlo tal cual en GitHub Pages, Netlify, Vercel o cualquier
+hosting estático — no necesita configuración adicional.
 
-## 🛠️ Tecnologías
+## El modelo de datos
 
-- Leaflet.js (mapa)
-- GeoJSON (base de datos georreferenciada)
-- HTML5/CSS3 + JavaScript vanilla, sin build step — abrir `index.html` en un
-  navegador o servir la carpeta con cualquier servidor estático.
+### `data/emprendimientos.geojson`
+
+`FeatureCollection` estándar (EPSG:4326, `[longitud, latitud]`). Cada
+`Feature` es un emprendimiento con estas `properties`:
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `codigo_ficha` | string | Código de levantamiento, ej. `"EC-04-CV"` |
+| `nombre_emprendedor` | string | Nombre completo del beneficiario |
+| `rut` | string \| null | RUT del beneficiario |
+| `nombre_emprendimiento` | string | Nombre comercial del negocio |
+| `rubro_principal` | string | Descripción del rubro |
+| `categoria` | string | Una de: `aventura`, `gastronomia`, `guiado`, `hospedaje`, `bienestar` — controla el color del marcador y el filtro |
+| `ubicacion_sector` | string | Dirección o sector, en texto libre |
+| `coordenadas_verificadas` | boolean | `false` si la ficha original marcaba la coordenada como pendiente de confirmar |
+| `nota_coordenadas` | string (opcional) | Aclaración cuando `coordenadas_verificadas` es `false` |
+| `fortalezas` | string[] | Viñetas de fortalezas clave del negocio |
+| `brechas_equipamiento` | string[] | Brechas de equipamiento o infraestructura |
+| `brechas_normativas` | string[] | Brechas normativas o sanitarias (patente, SERNATUR, formalización) |
+| `potencial_integracion` | string | Cómo se articula con el resto de la ruta |
+| `necesidad_inversion` | string | Resumen del plan de inversión propuesto |
+| `sitio_web` | string \| null | Link externo del negocio, si tiene |
+| `estado_ficha` | string | `"completa"` u otro estado |
+| `fuente_documento` | string | Nombre del PDF de origen, para trazabilidad |
+
+### `data/emprendimientos_pendientes.json`
+
+```jsonc
+{
+  "descripcion": "...",
+  "sin_coordenadas": [
+    {
+      "codigo_ficha": "EC-11-CV",
+      "nombre_emprendedor": "...",
+      "motivo_sin_coordenadas": "...",   // por qué no está en el mapa
+      "estado_ficha": "...",
+      "fuente_documento": "..."
+    }
+  ]
+}
+```
+
+## Cómo agregar o corregir un emprendimiento
+
+1. **Tiene coordenadas confirmadas** → agregar un `Feature` nuevo en
+   `emprendimientos.geojson` siguiendo la tabla de campos de arriba.
+   Recordar el orden `[longitud, latitud]` (al revés de como suelen venir
+   en las fichas, que dicen "Latitud / Longitud").
+2. **Todavía no tiene coordenadas** → agregarlo al array `sin_coordenadas`
+   de `emprendimientos_pendientes.json`, con el `motivo_sin_coordenadas`
+   explicado.
+3. **Cambia el color de una categoría nueva** → agregarla a `CATEGORY_COLORS`
+   y `CATEGORY_LABELS` en `assets/js/map.js`, y su chip de filtro en
+   `index.html` (`.category-filters`).
+
+No hace falta tocar nada más: el mapa, el sidebar, la leyenda y los
+contadores se generan dinámicamente a partir de estos dos archivos.
+
+## Qué falta (a propósito, no por omisión)
+
+- **Análisis territorial integrado**: conectividad entre atractivos, tiempos
+  reales de desplazamiento (caminos rurales, trasbordos) y accesibilidad
+  universal calculada. Hoy el mapa muestra solo la información de
+  accesibilidad ya descrita en cada ficha (ej. "acceso completo en
+  vehículo", "accesibilidad solo parcial") — no hay un motor de rutas
+  integrado. Implementarlo requiere decidir con qué servicio (OSRM propio,
+  Google Directions API, etc.) y si implica costo o llave de API.
+- **La ficha de Patricia Vargas**, que sigue en borrador. Falta que el
+  municipio o la consultora la completen con nombre, RUT, ubicación y
+  coordenadas para poder agregarla al mapa.
+
+## Créditos
+
+Elaborado por **[Dann LeBeau](https://dannlebeau.github.io/ownroute.github.io/)**
+por **[Geopolis](https://www.geopolis.cl)**, para el Programa de
+Fortalecimiento de la Oferta Turística Local de la Municipalidad de Curaco
+de Vélez.

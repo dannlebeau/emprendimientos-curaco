@@ -135,9 +135,9 @@ function buildRouteLayer() {
         .map(([lng, lat]) => [lat, lng]);
 
     routeLayer = L.polyline(latlngs, {
-        color: '#37474f',
-        weight: 3,
-        opacity: 0.75,
+        color: '#f57c00',
+        weight: 0.5,
+        opacity: 0.9,
         dashArray: '2 10',
         lineCap: 'round'
     });

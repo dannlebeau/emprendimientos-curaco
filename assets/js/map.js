@@ -136,7 +136,7 @@ function buildRouteLayer() {
 
     routeLayer = L.polyline(latlngs, {
         color: '#f57c00',
-        weight: 0.5,
+        weight: 3,
         opacity: 0.9,
         dashArray: '2 10',
         lineCap: 'round'

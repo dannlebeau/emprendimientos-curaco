@@ -1,0 +1,166 @@
+{
+  "type": "FeatureCollection",
+  "name": "emprendimientos_curaco",
+  "description": "Base de datos georeferenciada de emprendimientos turísticos de la Ruta 'Explora Curaco'. Programa de Fortalecimiento de la Oferta Turística Local — Municipalidad de Curaco de Vélez, Contrato de Consultoría ID 3285-4-L126. Compatible con Google My Maps y sistemas SIG (formato GeoJSON estándar, EPSG:4326).",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.5333293, -42.4258145] },
+      "properties": {
+        "codigo_ficha": "EC-10-CV",
+        "nombre_emprendedor": "Claudio Ilnao Ruiz",
+        "rut": "15.814.246-5",
+        "nombre_emprendimiento": "Parque Aventura Chiloé",
+        "rubro_principal": "Turismo aventura (canopy, senderismo autoguiado, centro de eventos)",
+        "categoria": "aventura",
+        "ubicacion_sector": "Sector Palqui, Curaco de Vélez (8 km del centro)",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Único emprendimiento de turismo aventura de gran escala en toda la ruta, sin competencia directa dentro del circuito",
+          "Canopy de 600 metros (\"El vuelo del brujo\") con vista al mar, senderos autoguiados, zonas de descanso y centro de eventos con capacidad para 60 personas",
+          "Formalización muy completa (SII, patente municipal, Registro SERNATUR y personal formalizado)",
+          "Presencia digital consolidada y multicanal: sitio web propio, Google Business Profile, Booking, TripAdvisor, Instagram, Facebook y TikTok, con reservas por WhatsApp"
+        ],
+        "brechas_equipamiento": [
+          "Necesidad de ampliar arneses de seguridad para el canopy, limitante actual para aumentar la capacidad simultánea de atención",
+          "Sin señalización vial hacia el acceso, pese a contar con carteles propios dentro del predio",
+          "Accesibilidad solo parcial para personas con movilidad reducida"
+        ],
+        "brechas_normativas": [
+          "Exposición a viento/temporal por tratarse de actividad de altura (canopy); sin evidencia de protocolo formal de suspensión basado en mediciones objetivas"
+        ],
+        "potencial_integracion": "Colindante con Bosque Palqui (Paola López), con potencial de circuito conjunto naturaleza + aventura.",
+        "necesidad_inversion": "Ampliación de arneses de seguridad certificados para canopy/zip-line.",
+        "sitio_web": "https://www.paventurachiloe.cl",
+        "estado_ficha": "completa",
+        "fuente_documento": "PI_10_Claudio_Ilnao.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.52683, -42.41246] },
+      "properties": {
+        "codigo_ficha": "EC-12-CV",
+        "nombre_emprendedor": "Lidiana Mancilla Alvarado (Anival Alvarado)",
+        "rut": "16.439.701-7",
+        "nombre_emprendimiento": "Muelle Chonos (mirador turístico)",
+        "rubro_principal": "Guiado/experiencias (mirador turístico)",
+        "categoria": "guiado",
+        "ubicacion_sector": "Palqui rural s/n, Curaco de Vélez",
+        "coordenadas_verificadas": false,
+        "nota_coordenadas": "Coordenadas pendientes de verificar con la beneficiaria (según ficha original)",
+        "fortalezas": [
+          "Accesibilidad total y diferenciadora: se llega en vehículo directamente hasta el mirador — una de las pocas opciones de la ruta con acceso completo para personas con movilidad reducida y adultos mayores",
+          "Presencia digital con buena base y contenido de calidad ya gestionado por la propia emprendedora: 3.200 seguidores en Instagram (cifra similar en Facebook), con fotografía y video de buen nivel"
+        ],
+        "brechas_equipamiento": [
+          "Riesgo de seguridad urgente y no resuelto: la plataforma del mirador no cuenta con barandas de protección — la brecha más crítica identificada en el diagnóstico",
+          "Falta de contenido interpretativo del paisaje",
+          "Servicio sin valor agregado definido: no hay espacios de descanso"
+        ],
+        "brechas_normativas": [
+          "Opera con permiso municipal provisorio (sin patente municipal definitiva)",
+          "Sin Registro Nacional de Prestadores SERNATUR",
+          "Sin formalización del personal familiar"
+        ],
+        "potencial_integracion": "Se integra al clúster de atractivos del sector de Palqui (canopy de Claudio Ilnao, Iglesia de Palqui, playa de Palqui): circuito de naturaleza, aventura y patrimonio.",
+        "necesidad_inversion": "Barandas de protección para la plataforma (prioridad de seguridad); binoculares fijos, toldos, mesas y sillas para zona de descanso.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "PI_12_Anival_Mancilla.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.5288189, -42.4101096] },
+      "properties": {
+        "codigo_ficha": "EC-13-CV",
+        "nombre_emprendedor": "Ana María Mansilla",
+        "rut": "11.117.824-0",
+        "nombre_emprendimiento": "Restaurante El Único",
+        "rubro_principal": "Alimentación/gastronomía (comida casera + arriendo de espacio para eventos)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Sector Palqui, Curaco de Vélez (10 km del centro)",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Único restaurante disponible en el sector de Palqui, con formalización prácticamente completa (SII, patente municipal, Registro SERNATUR y resolución sanitaria vigentes)",
+          "Diversificación de ingresos ya activa: combina atención diaria con arriendo de espacio para eventos (familiares, empresas, colegios), con espacio exterior bien cuidado y cancha de pasto"
+        ],
+        "brechas_equipamiento": [
+          "Cocina de tipo tradicional (no industrial), que ralentiza los procesos de preparación dada su capacidad de atención (50 personas/día) más eventos",
+          "Mezcla de funciones en el espacio de atención al público (sección usada también como oficina/taller)"
+        ],
+        "brechas_normativas": [
+          "Formalización parcial de personal: contratación informal para eventos y temporada alta"
+        ],
+        "potencial_integracion": "Único restaurante del sector de Palqui: nodo gastronómico natural cercano a la playa del estero de Palqui, el muelle Chonos y el parque costumbrista.",
+        "necesidad_inversion": "Cocina industrial (4 quemadores + horno) y churrasquera con freidora.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "13_PI_Ana_Maria_Mansilla.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.6089212, -42.4240293] },
+      "properties": {
+        "codigo_ficha": "EC-15-CV",
+        "nombre_emprendedor": "Jaime Prado Mora",
+        "rut": "5.029.525-7",
+        "nombre_emprendimiento": "Restaurante Los Cipreses",
+        "rubro_principal": "Alimentación/gastronomía (restaurante de mayor elaboración)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Huyar Alto rural, Curaco de Vélez (5 km del centro)",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Propuesta gastronómica superior al promedio del sector (carta con ostras), espacio bien cuidado con identidad chilota, y buena fama consolidada pese a baja presencia digital",
+          "Modelo de doble temporada: operación regular en verano más reserva del espacio para eventos corporativos todo el año, con formalización prácticamente resuelta (SII, patente municipal y resolución sanitaria)"
+        ],
+        "brechas_equipamiento": [
+          "Necesidad de estufa a pellet o cafetera de calidad",
+          "Cartelería expuesta a pérdida reiterada por viento fuerte, manejada solo con una solución adaptativa manual"
+        ],
+        "brechas_normativas": [
+          "Registro Nacional de Prestadores SERNATUR sin confirmar",
+          "Personal de apoyo sin formalización"
+        ],
+        "potencial_integracion": "Opción gastronómica premium de la ruta; articulación narrativa con emprendimientos ostricultores (como Los Troncos) sumando identidad gastronómica marina.",
+        "necesidad_inversion": "Estufa a pellet (100 m²) con kit de instalación de techo.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "15_PI_Jaime_Prado.docx.pdf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.59326, -42.43624] },
+      "properties": {
+        "codigo_ficha": "EC-16-CV",
+        "nombre_emprendedor": "Luis Cárdenas",
+        "rut": "15.983.686-K",
+        "nombre_emprendimiento": "Restaurante Tejuelas",
+        "rubro_principal": "Alimentación/gastronomía (restaurante gourmet)",
+        "categoria": "gastronomia",
+        "ubicacion_sector": "Ingreso a Curaco de Vélez, ruta hacia Achao",
+        "coordenadas_verificadas": true,
+        "fortalezas": [
+          "Único restaurante de alto nivel en toda la ruta: propuesta gourmet, infraestructura versátil de muy buen nivel y vista privilegiada de la bahía de Curaco",
+          "Formalización completa (SII, patente municipal, Registro SERNATUR, resolución sanitaria y personal formalizado) — el estándar más alto observado en todo el programa"
+        ],
+        "brechas_equipamiento": [
+          "Necesidad de estufa industrial, coherente con su escala de atención (80 personas/día)"
+        ],
+        "brechas_marketing_digital": [
+          "Redes sociales significativamente subutilizadas: casi 1.500 seguidores en Instagram pero solo 6 publicaciones en 3 años",
+          "Sin señalización vial de ruta hacia el emprendimiento"
+        ],
+        "brechas_normativas": [],
+        "potencial_integracion": "Por su nivel y capacidad para recibir comensales individuales o grupos/eventos corporativos, referente gastronómico ancla o experiencia de cierre de un circuito de varios días.",
+        "necesidad_inversion": "Estufa industrial para cocina, microondas y juguera.",
+        "sitio_web": null,
+        "estado_ficha": "completa",
+        "fuente_documento": "16_PI_Luis_Cardenas.docx.pdf"
+      }
+    }
+  ]
+}

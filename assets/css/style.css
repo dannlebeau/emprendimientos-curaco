@@ -1,0 +1,293 @@
+:root {
+    --color-aventura: #2e7d32;
+    --color-gastronomia: #d84315;
+    --color-guiado: #1565c0;
+    --color-bienestar: #6a1b9a;
+    --color-pendiente: #757575;
+    --panel-bg: #ffffff;
+    --panel-border: #e0e0e0;
+    --text-main: #263238;
+    --text-muted: #607d8b;
+    --accent: #00695c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+    color: var(--text-main);
+}
+
+#map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ---------- Encabezado ---------- */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(90deg, #00695c, #00897b);
+    color: #fff;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.app-header h1 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.app-header .subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.toggle-sidebar {
+    position: fixed;
+    top: 68px;
+    left: 12px;
+    z-index: 1001;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 380px;
+    max-width: 92vw;
+    background: var(--panel-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    z-index: 999;
+    transform: translateX(0);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    padding-bottom: 24px;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 16px 8px;
+}
+
+.sidebar-header h2 {
+    font-size: 15px;
+    margin: 0 0 4px;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.data-status-banner {
+    margin: 0 16px 12px;
+    padding: 10px 12px;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: #5d4037;
+}
+
+.data-status-banner strong { color: #e65100; }
+
+.filter-group {
+    padding: 0 16px 12px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1.5px solid var(--panel-border);
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease;
+}
+
+.category-chip.active {
+    color: #fff;
+    border-color: transparent;
+}
+
+.category-chip .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.category-chip[data-cat="aventura"].active { background: var(--color-aventura); }
+.category-chip[data-cat="gastronomia"].active { background: var(--color-gastronomia); }
+.category-chip[data-cat="guiado"].active { background: var(--color-guiado); }
+
+.section-title {
+    padding: 12px 16px 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border-top: 1px solid var(--panel-border);
+    margin-top: 4px;
+}
+
+.emprendimiento-list {
+    padding: 4px 12px;
+}
+
+.emprendimiento-card {
+    border: 1px solid var(--panel-border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background: #fafafa;
+    transition: background 0.15s ease;
+}
+
+.emprendimiento-card:hover {
+    background: #eef7f6;
+}
+
+.emprendimiento-card .card-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin: 0 0 2px;
+}
+
+.emprendimiento-card .card-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.pendiente-card {
+    border-left-color: var(--color-pendiente);
+    background: #f5f5f5;
+    cursor: default;
+    opacity: 0.9;
+}
+
+.pendiente-card .badge {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    background: #eeeeee;
+    color: #616161;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 4px;
+}
+
+.missing-note {
+    margin: 8px 16px 4px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+/* ---------- Popups ---------- */
+.leaflet-popup-content-wrapper {
+    border-radius: 10px;
+}
+
+.ec-popup { font-size: 13px; max-width: 280px; }
+.ec-popup h3 { margin: 0 0 2px; font-size: 14.5px; }
+.ec-popup .popup-rubro { color: var(--text-muted); font-size: 12px; margin: 0 0 8px; }
+.ec-popup .popup-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 8px 0 2px;
+}
+.ec-popup ul { margin: 2px 0; padding-left: 18px; }
+.ec-popup li { margin-bottom: 3px; }
+
+.popup-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.popup-actions a {
+    font-size: 12px;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.popup-actions a.secondary {
+    background: #eceff1;
+    color: var(--text-main);
+}
+
+@media (max-width: 640px) {
+    .sidebar { top: 56px; width: 100%; max-width: 100%; }
+    .app-header h1 { font-size: 14px; }
+    .app-header .subtitle { display: none; }
+}

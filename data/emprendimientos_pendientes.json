@@ -1,0 +1,44 @@
+{
+  "descripcion": "Emprendimientos de la Ruta 'Explora Curaco' que cuentan con ficha de levantamiento pero sin coordenadas utilizables para el mapa, y códigos de ficha aún no recibidos. No se incluyen en emprendimientos.geojson porque no tienen geometría válida.",
+  "sin_coordenadas": [
+    {
+      "codigo_ficha": "EC-11-CV",
+      "nombre_emprendedor": "Dayana Francisca Rojas Venegas",
+      "rut": "17.036.709-K",
+      "nombre_emprendimiento": "Kumelawen Spa (Yaya Guardiana)",
+      "rubro_principal": "Turismo de bienestar y terapéutico / tour operador en formalización",
+      "ubicacion_sector": "Camino Huenao, Palqui, Curaco de Vélez",
+      "motivo_sin_coordenadas": "Operación itinerante (no aplica georreferenciación fija); oficina presencial proyectada para agosto de 2026, según la ficha original.",
+      "fortalezas": [
+        "Experiencias diseñadas con buenas prácticas de aviturismo, paquetes ya validados comercialmente (\"Retiro de Pinkoyas\") y perfil de guía altamente calificado (aviturismo, terapeuta, inglés y portugués)",
+        "Conexiones internacionales en desarrollo (agencias de Brasil y Rapa Nui); presidenta de la Agrupación de Neurodivergentes de Curaco de Vélez"
+      ],
+      "brechas": [
+        "Sin sitio web propio pese a contar con prototipos definidos",
+        "Sin material de difusión física (tarjetas, papelería, merchandising)",
+        "Formalización en proceso: patente municipal en trámite, Registro SERNATUR pendiente de curso obligatorio, ampliación de giro a agencia de viajes/tour operador incompleta"
+      ],
+      "estado_ficha": "completa (falta geolocalización)",
+      "fuente_documento": "11_PI_Dayana_Rojas.docx.pdf"
+    },
+    {
+      "codigo_ficha": null,
+      "nombre_emprendedor": "Patricia Vargas [a confirmar]",
+      "rut": null,
+      "nombre_emprendimiento": null,
+      "rubro_principal": "Alojamiento (cabañas), a confirmar",
+      "ubicacion_sector": null,
+      "motivo_sin_coordenadas": "Ficha marcada como borrador: no incluye código de levantamiento, RUT, ubicación ni coordenadas. Solo se registró la propuesta de inversión (renovación de equipamiento textil para cabañas).",
+      "estado_ficha": "borrador incompleto",
+      "fuente_documento": "14_PI_Patricia_Vargas_borrador.docx.pdf"
+    }
+  ],
+  "sin_ficha_recibida": {
+    "descripcion": "El programa contempla 16 emprendimientos en total. Solo se han recibido fichas para los códigos EC-10 a EC-16 (7 fichas: 5 geolocalizadas + 2 en 'sin_coordenadas' arriba). Los códigos EC-01 a EC-09 aún no han sido entregados o levantados — no hay ningún dato (nombre, rubro, ubicación) disponible para ellos.",
+    "codigos_faltantes": ["EC-01-CV", "EC-02-CV", "EC-03-CV", "EC-04-CV", "EC-05-CV", "EC-06-CV", "EC-07-CV", "EC-08-CV", "EC-09-CV"],
+    "mencionados_indirectamente_sin_ficha_propia": [
+      "Bosque Palqui (Paola López) — mencionado como colindante de Parque Aventura Chiloé (EC-10)",
+      "Los Troncos (ostricultores) — mencionado como posible articulación gastronómica marina con Restaurante Los Cipreses (EC-15)"
+    ]
+  }
+}

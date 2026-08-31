@@ -1,0 +1,65 @@
+<!--
+    Emprendimientos-Curaco
+    Mapa de la Ruta "Explora Curaco" — Programa de Fortalecimiento de la Oferta
+    Turística Local, Municipalidad de Curaco de Vélez.
+    Contrato de Consultoría ID 3285-4-L126.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mapa interactivo de los emprendimientos turísticos de la Ruta Explora Curaco, Curaco de Vélez, Chiloé.">
+    <title>Emprendimientos Curaco — Ruta Explora Curaco</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+    <div>
+        <h1>Ruta Explora Curaco</h1>
+        <p class="subtitle">Emprendimientos turísticos — Curaco de Vélez, Chiloé</p>
+    </div>
+</header>
+
+<button id="toggleSidebar" class="toggle-sidebar" title="Mostrar/Ocultar panel">☰</button>
+
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <div>
+            <h2>Emprendimientos</h2>
+        </div>
+        <button id="closeSidebar" class="close-btn">✕</button>
+    </div>
+
+    <div class="data-status-banner">
+        <strong id="countGeolocalizados">0</strong> emprendimientos geolocalizados de 16 totales del programa.
+        <span id="countPendientes">0</span> aún sin coordenadas o ficha completa — ver detalle abajo.
+    </div>
+
+    <div class="filter-group">
+        <label>Filtrar por rubro</label>
+        <div class="category-filters">
+            <span class="category-chip active" data-cat="aventura"><span class="dot" style="background:#2e7d32"></span>Aventura</span>
+            <span class="category-chip active" data-cat="gastronomia"><span class="dot" style="background:#d84315"></span>Gastronomía</span>
+            <span class="category-chip active" data-cat="guiado"><span class="dot" style="background:#1565c0"></span>Guiado / Miradores</span>
+        </div>
+    </div>
+
+    <div class="section-title">En el mapa</div>
+    <div id="emprendimientoList" class="emprendimiento-list"></div>
+
+    <div class="section-title">Pendientes de geolocalizar</div>
+    <div id="pendientesList" class="emprendimiento-list"></div>
+    <div id="missingNote" class="missing-note"></div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./assets/js/map.js"></script>
+
+</body>
+</html>

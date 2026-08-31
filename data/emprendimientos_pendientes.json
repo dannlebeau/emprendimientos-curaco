@@ -19,17 +19,6 @@
       ],
       "estado_ficha": "completa (georreferenciación no aplica — operación itinerante)",
       "fuente_documento": "11_PI_Dayana_Rojas.docx.pdf"
-    },
-    {
-      "codigo_ficha": null,
-      "nombre_emprendedor": "Patricia Vargas [a confirmar]",
-      "rut": null,
-      "nombre_emprendimiento": null,
-      "rubro_principal": "Alojamiento (cabañas), a confirmar",
-      "ubicacion_sector": null,
-      "motivo_sin_coordenadas": "Ficha marcada como borrador: no incluye código de levantamiento, RUT, ubicación ni coordenadas. Solo se registró la propuesta de inversión (renovación de equipamiento textil para cabañas).",
-      "estado_ficha": "borrador incompleto",
-      "fuente_documento": "14_PI_Patricia_Vargas_borrador.docx.pdf"
     }
   ]
 }

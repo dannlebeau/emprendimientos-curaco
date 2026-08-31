@@ -34,14 +34,23 @@ coordenada ni dato inventado.**
 
 | Estado | Cantidad | Códigos |
 |---|---|---|
-| ✅ Geolocalizados en el mapa | **14** | EC-01 a EC-10, EC-12, EC-13, EC-15, EC-16 |
-| ⚠️ Con ficha completa pero sin coordenadas | **2** | EC-11 (Kumelawen Spa — operación itinerante, sin dirección fija), ficha de Patricia Vargas (borrador incompleto: sin código, nombre, RUT ni ubicación) |
+| ✅ Geolocalizados en el mapa | **15** | EC-01 a EC-10, EC-12 a EC-16 |
+| ⚠️ Con ficha completa pero sin coordenadas | **1** | EC-11 (Kumelawen Spa — operación itinerante, sin dirección fija) |
 
-Estos 2 casos no se ocultan: aparecen en un panel aparte del sidebar
-("Pendientes de geolocalizar") con el motivo exacto de por qué no están en
+Este caso no se oculta: aparece en un panel aparte del sidebar
+("Pendientes de geolocalizar") con el motivo exacto de por qué no está en
 el mapa. La coordenada de EC-12 (Muelle Chonos) viene marcada en su ficha
 original como *"[verificar con beneficiaria]"* — se incluyó de todas formas
 por ser la única disponible, marcada con `coordenadas_verificadas: false`.
+
+**EC-14 (Cabañas San Camilo, sector Huenao)** tiene una inconsistencia sin
+resolver: el documento de origen trae en su encabezado "Código de ficha:
+12", que ya está asignado a EC-12-CV (Muelle Chonos) — un emprendimiento
+distinto y en otra ubicación. Se mantuvo `EC-14-CV` según el nombre del
+archivo (`14_PATRICIA VARGAS_Pendiente.pdf`); queda pendiente confirmar con
+la consultora cuál código es el correcto (ver `nota_codigo_ficha` en su
+`Feature`). Tampoco trae el nombre completo del emprendedor/a, RUT ni la
+síntesis FODA — esas secciones llegaron en blanco en la ficha.
 
 ## Funcionalidades
 
@@ -61,11 +70,12 @@ por ser la única disponible, marcada con `coordenadas_verificadas: false`.
   (`google.com/maps/dir/?api=1&destination=lat,lng`) — no requiere abrir la
   app de Maps por separado ni buscar la dirección a mano.
 - **Ruta sugerida** (toggle opcional en el sidebar): dibuja una línea que
-  conecta los 14 puntos en el **orden geográfico real del recorrido**
-  (San Javier → Changüitad → Huyar Alto → centro → bifurcación hacia Achao →
-  Palqui), no por categoría — conectarlos por rubro no representa cómo se
-  recorre físicamente la isla. Es una secuencia sugerida en línea recta entre
-  puntos, no una ruta calculada sobre caminos reales (ver "Qué falta" abajo).
+  conecta los 15 puntos en el **orden geográfico real del recorrido**
+  (San Javier → Huenao → Changüitad → Huyar Alto → centro → bifurcación
+  hacia Achao → Palqui), no por categoría — conectarlos por rubro no
+  representa cómo se recorre físicamente la isla. Es una secuencia sugerida
+  en línea recta entre puntos, no una ruta calculada sobre caminos reales
+  (ver "Qué falta" abajo).
 - **Sidebar fijo en escritorio** (siempre visible, sin botón para
   ocultarlo) y **colapsable en celular** (≤640px), donde sí aparece un
   botón ☰ para mostrarlo/ocultarlo — necesario ahí porque el sidebar ocupa
@@ -80,7 +90,7 @@ Emprendimientos-Curaco/
 │   ├── css/style.css                       Estilos (tema, sidebar, popups, leyenda)
 │   └── js/map.js                           Lógica del mapa (Leaflet, filtros, popups)
 ├── data/
-│   ├── emprendimientos.geojson             Base georreferenciada — los 14 puntos del mapa
+│   ├── emprendimientos.geojson             Base georreferenciada — los 15 puntos del mapa
 │   └── emprendimientos_pendientes.json     Los 2 emprendimientos sin coordenadas
 └── README.md                               Este archivo
 ```
@@ -181,9 +191,10 @@ contadores se generan dinámicamente a partir de estos dos archivos.
   solo parcial"), pero un motor de rutas real requiere decidir con qué
   servicio (OSRM propio, Google Directions API, etc.) y si implica costo o
   llave de API.
-- **La ficha de Patricia Vargas**, que sigue en borrador. Falta que el
-  municipio o la consultora la completen con nombre, RUT, ubicación y
-  coordenadas para poder agregarla al mapa.
+- **EC-14 (Cabañas San Camilo)** ya está en el mapa con coordenadas, pero
+  sigue faltando el nombre completo del emprendedor/a, su RUT y la síntesis
+  FODA — y queda pendiente resolver el conflicto de código de ficha descrito
+  arriba.
 
 ## Créditos
 

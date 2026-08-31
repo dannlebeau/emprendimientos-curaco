@@ -49,7 +49,7 @@ const CURACO_CENTER = [-42.4180, -73.5650];
 // Alto → centro → bifurcación hacia Achao → Palqui — en vez de agrupar por
 // rubro, que no refleja cómo se recorre físicamente la isla.
 const ROUTE_ORDER = [
-    'EC-01-CV', 'EC-02-CV', 'EC-15-CV',
+    'EC-01-CV', 'EC-14-CV', 'EC-02-CV', 'EC-15-CV',
     'EC-04-CV', 'EC-03-CV', 'EC-05-CV', 'EC-06-CV', 'EC-07-CV',
     'EC-08-CV', 'EC-16-CV',
     'EC-10-CV', 'EC-09-CV', 'EC-12-CV', 'EC-13-CV'

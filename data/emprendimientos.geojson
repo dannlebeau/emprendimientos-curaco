@@ -387,6 +387,37 @@
     },
     {
       "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-73.6340294, -42.4635582] },
+      "properties": {
+        "codigo_ficha": "EC-14-CV",
+        "nombre_emprendedor": "Patricia Vargas [nombre completo a confirmar]",
+        "rut": null,
+        "nombre_emprendimiento": "Cabañas San Camilo",
+        "rubro_principal": "Alojamiento (cabañas)",
+        "categoria": "hospedaje",
+        "ubicacion_sector": "Localidad Huenao, Curaco de Vélez",
+        "coordenadas_verificadas": true,
+        "nota_codigo_ficha": "El documento de origen indica \"Código de ficha: 12\" en su encabezado, que coincide con el código ya asignado a EC-12-CV (Muelle Chonos) — un emprendimiento distinto, con otra ubicación. Se mantiene EC-14-CV según el nombre del archivo original; pendiente confirmar con la consultora cuál código es el correcto.",
+        "fortalezas": [
+          "Buen estado general de infraestructura, con los cinco servicios básicos disponibles (agua potable, electricidad continua, alcantarillado/fosa séptica, internet y señal telefónica) y señalética turística ya instalada en el predio",
+          "Iniciación de actividades ante el SII vigente; venta directa/local ya activa como canal de comercialización"
+        ],
+        "brechas_equipamiento": [
+          "Sistema de paneles solares sin inversor ni baterías — necesidad de apoyo señalada explícitamente por la propia beneficiaria",
+          "Accesibilidad solo parcial para personas con movilidad reducida"
+        ],
+        "brechas_normativas": [
+          "Patente municipal, Registro Nacional de Prestadores SERNATUR, resolución sanitaria y formalización de personal sin confirmar en la ficha (casillas sin marcar)"
+        ],
+        "potencial_integracion": "No trabaja articuladamente con otros emprendimientos por ahora, pero manifiesta interés explícito en integrarse a la ruta (\"porque me gusta trabajar en grupo y como me ofrecieron la oportunidad no la quise desaprovechar\").",
+        "necesidad_inversion": "Inversor y baterías para el sistema de paneles solares.",
+        "sitio_web": null,
+        "estado_ficha": "parcial — coordenadas e infraestructura confirmadas; falta nombre completo del emprendedor/a, RUT y síntesis FODA (secciones en blanco en la ficha de origen)",
+        "fuente_documento": "14_PATRICIA VARGAS_Pendiente.pdf"
+      }
+    },
+    {
+      "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [-73.6089212, -42.4240293] },
       "properties": {
         "codigo_ficha": "EC-15-CV",

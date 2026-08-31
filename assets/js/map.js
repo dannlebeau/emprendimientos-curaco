@@ -147,9 +147,28 @@ function setupRouteToggle() {
     document.getElementById('routeToggle').addEventListener('change', (e) => {
         if (e.target.checked) {
             routeLayer.addTo(map);
+            collapseSidebarOnMobile();
         } else {
             map.removeLayer(routeLayer);
         }
+    });
+}
+
+// El sidebar es fijo en escritorio; solo se colapsa en celular (ver
+// @media en style.css), donde el botón toggle-sidebar existe y es visible.
+function collapseSidebarOnMobile() {
+    if (window.innerWidth <= 640) {
+        document.getElementById('sidebar').classList.add('hidden');
+    }
+}
+
+function setupSidebarToggle() {
+    const sidebar = document.getElementById('sidebar');
+    document.getElementById('toggleSidebar').addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+    document.getElementById('closeSidebar').addEventListener('click', () => {
+        sidebar.classList.add('hidden');
     });
 }
 
@@ -250,6 +269,7 @@ function renderSidebarList() {
             if (!marker) return;
             map.flyTo(marker.getLatLng(), 15, { duration: 0.6 });
             marker.openPopup();
+            collapseSidebarOnMobile();
         });
         listEl.appendChild(card);
     });
@@ -311,6 +331,7 @@ async function loadData() {
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
     setupCategoryFilters();
+    setupSidebarToggle();
     setupRouteToggle();
     loadData();
 });

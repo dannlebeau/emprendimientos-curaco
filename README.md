@@ -66,7 +66,10 @@ por ser la única disponible, marcada con `coordenadas_verificadas: false`.
   Palqui), no por categoría — conectarlos por rubro no representa cómo se
   recorre físicamente la isla. Es una secuencia sugerida en línea recta entre
   puntos, no una ruta calculada sobre caminos reales (ver "Qué falta" abajo).
-- **Sidebar fijo**: siempre visible, sin botón para ocultarlo.
+- **Sidebar fijo en escritorio** (siempre visible, sin botón para
+  ocultarlo) y **colapsable en celular** (≤640px), donde sí aparece un
+  botón ☰ para mostrarlo/ocultarlo — necesario ahí porque el sidebar ocupa
+  el ancho completo de la pantalla y taparía el mapa por completo.
 
 ## Estructura del proyecto
 

@@ -48,8 +48,8 @@ por ser la única disponible, marcada con `coordenadas_verificadas: false`.
 - **Mapa base gratuito, sin API key**: selector con 4 capas (arriba a la
   derecha) — Esri Satelital (por defecto, útil para reconocer accesos
   rurales y relieve real), Esri Topográfico, OpenTopoMap y OpenStreetMap.
-- **Zoom** abajo a la izquierda · **Leyenda de categorías** abajo a la
-  derecha.
+- **Zoom** justo debajo del selector de mapas (arriba a la derecha) ·
+  **Leyenda de categorías** abajo a la derecha, con el crédito de autoría.
 - **Filtro por rubro** en el sidebar: Aventura, Gastronomía, Guiado /
   Naturaleza, Hospedaje — togglea qué categorías se muestran en el mapa y en
   la lista.
@@ -66,8 +66,7 @@ por ser la única disponible, marcada con `coordenadas_verificadas: false`.
   Palqui), no por categoría — conectarlos por rubro no representa cómo se
   recorre físicamente la isla. Es una secuencia sugerida en línea recta entre
   puntos, no una ruta calculada sobre caminos reales (ver "Qué falta" abajo).
-- **100% responsivo**: el sidebar se colapsa a pantalla completa en celular,
-  el mapa ocupa toda la ventana.
+- **Sidebar fijo**: siempre visible, sin botón para ocultarlo.
 
 ## Estructura del proyecto
 

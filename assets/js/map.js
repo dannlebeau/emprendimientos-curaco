@@ -102,12 +102,10 @@ function initMap() {
         'OpenStreetMap': openStreetMap
     };
 
+    // Zoom justo debajo del selector de mapas: al agregarse después, en la
+    // misma esquina, Leaflet lo apila abajo automáticamente.
     L.control.layers(baseMaps, null, { position: 'topright', collapsed: true }).addTo(map);
-    // bottomright (no bottomleft): el sidebar ocupa toda la columna
-    // izquierda cuando está abierto -por defecto lo está- y taparía el
-    // control de zoom ahí. En bottomright queda apilado sobre la leyenda,
-    // zona que el sidebar nunca cubre.
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.control.zoom({ position: 'topright' }).addTo(map);
     addLegend();
 
     markersLayer = L.layerGroup().addTo(map);
@@ -149,9 +147,6 @@ function setupRouteToggle() {
     document.getElementById('routeToggle').addEventListener('change', (e) => {
         if (e.target.checked) {
             routeLayer.addTo(map);
-            if (window.innerWidth <= 640) {
-                document.getElementById('sidebar').classList.add('hidden');
-            }
         } else {
             map.removeLayer(routeLayer);
         }
@@ -255,9 +250,6 @@ function renderSidebarList() {
             if (!marker) return;
             map.flyTo(marker.getLatLng(), 15, { duration: 0.6 });
             marker.openPopup();
-            if (window.innerWidth <= 640) {
-                document.getElementById('sidebar').classList.add('hidden');
-            }
         });
         listEl.appendChild(card);
     });
@@ -297,29 +289,6 @@ function setupCategoryFilters() {
     });
 }
 
-function setupSidebarToggle() {
-    const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('toggleSidebar');
-
-    // El sidebar entra abierto por defecto, así que el ícono parte como
-    // flecha "colapsar" (◀) y cambia a "expandir" (▶) una vez cerrado.
-    const syncToggleIcon = () => {
-        toggleBtn.textContent = sidebar.classList.contains('hidden') ? '▶' : '◀';
-        toggleBtn.title = sidebar.classList.contains('hidden') ? 'Mostrar filtros' : 'Ocultar filtros';
-    };
-
-    toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-        syncToggleIcon();
-    });
-    document.getElementById('closeSidebar').addEventListener('click', () => {
-        sidebar.classList.add('hidden');
-        syncToggleIcon();
-    });
-
-    syncToggleIcon();
-}
-
 async function loadData() {
     const [geoRes, pendRes] = await Promise.all([
         fetch('./data/emprendimientos.geojson'),
@@ -342,7 +311,6 @@ async function loadData() {
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
     setupCategoryFilters();
-    setupSidebarToggle();
     setupRouteToggle();
     loadData();
 });

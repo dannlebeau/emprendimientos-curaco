@@ -104,7 +104,7 @@ function addLegend() {
         const rows = Object.keys(CATEGORY_LABELS).filter(cat => cat !== 'bienestar').map(cat =>
             `<div class="legend-row"><span class="legend-dot" style="background:${CATEGORY_COLORS[cat]}"></span>${CATEGORY_LABELS[cat]}</div>`
         ).join('');
-        div.innerHTML = `<div class="legend-title">Leyenda</div>${rows}`;
+        div.innerHTML = `<div class="legend-title">Leyenda</div>${rows}<div class="legend-credit">Elaborado por <a href="https://dannlebeau.github.io/ownroute.github.io/" target="_blank" rel="noopener">Dann LeBeau</a> by <a href="https://www.geopolis.cl" target="_blank" rel="noopener">Geopolis</a></div>`;
         L.DomEvent.disableClickPropagation(div);
         return div;
     };
@@ -231,9 +231,6 @@ function renderPendientes(data) {
         `;
         container.appendChild(card);
     });
-
-    const note = document.getElementById('missingNote');
-    note.textContent = data.descripcion || '';
 }
 
 function setupCategoryFilters() {

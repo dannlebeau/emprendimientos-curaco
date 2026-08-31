@@ -1,5 +1,4 @@
 {
-  "descripcion": "Emprendimientos de la Ruta 'Explora Curaco' que cuentan con ficha de levantamiento pero sin coordenadas utilizables para el mapa. No se incluyen en emprendimientos.geojson porque no tienen geometría válida. Las 16 fichas del programa (EC-01 a EC-16) ya fueron recibidas y revisadas: 14 tienen coordenadas y están en el mapa, estas 2 no.",
   "sin_coordenadas": [
     {
       "codigo_ficha": "EC-11-CV",

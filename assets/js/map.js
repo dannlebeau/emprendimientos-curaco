@@ -29,11 +29,50 @@ let allFeatures = [];
 function initMap() {
     map = L.map('map', { zoomControl: false }).setView(CURACO_CENTER, 12);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    // Capas base gratuitas (sin API key). maxNativeZoom evita el cartel
+    // "Map data not yet available" de Esri más allá de su zoom nativo:
+    // Leaflet reescala el último tile en vez de pedir uno inexistente.
+    const cartoDBPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '© CartoDB, © OpenStreetMap',
         maxZoom: 19
-    }).addTo(map);
+    });
 
+    const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap',
+        maxZoom: 19
+    });
+
+    const esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri',
+        maxZoom: 19,
+        maxNativeZoom: 17
+    });
+
+    const esriWorldTopo = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri',
+        maxZoom: 19,
+        maxNativeZoom: 18
+    });
+
+    const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenTopoMap (CC-BY-SA), © OpenStreetMap',
+        maxZoom: 19,
+        maxNativeZoom: 17
+    });
+
+    // Esri Satelital por defecto: útil para reconocer accesos rurales y
+    // relieve real de la ruta, más allá de lo que muestra un mapa de calles.
+    esriWorldImagery.addTo(map);
+
+    const baseMaps = {
+        'Esri Satelital': esriWorldImagery,
+        'Esri Topográfico': esriWorldTopo,
+        'OpenTopoMap': openTopoMap,
+        'CartoDB Claro': cartoDBPositron,
+        'OpenStreetMap': openStreetMap
+    };
+
+    L.control.layers(baseMaps, null, { position: 'topright', collapsed: true }).addTo(map);
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     markersLayer = L.layerGroup().addTo(map);

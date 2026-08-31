@@ -48,8 +48,10 @@ Emprendimientos-Curaco/
 - **Base de datos georreferenciada** en GeoJSON estándar (`data/emprendimientos.geojson`):
   se puede importar directo en [Google My Maps](https://mymaps.google.com)
   (Importar → arrastrar el archivo) o en cualquier SIG (QGIS, ArcGIS, etc.).
-- **Mapa interactivo responsivo** (Leaflet + CartoDB Voyager como base),
-  funciona en escritorio y móvil.
+- **Mapa interactivo responsivo** (Leaflet), funciona en escritorio y móvil,
+  con selector de **5 mapas base gratuitos** (sin API key, arriba a la
+  derecha): Esri Satelital (por defecto — útil para ver accesos rurales y
+  relieve real), Esri Topográfico, OpenTopoMap, CartoDB Claro y OpenStreetMap.
 - **Filtro por rubro** (aventura / gastronomía / guiado).
 - **Popup por emprendimiento** con: nombre, rubro, ubicación, fortalezas,
   brechas de equipamiento y normativas, necesidad de inversión y potencial de

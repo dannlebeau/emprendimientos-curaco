@@ -247,6 +247,11 @@ html, body {
     padding: 10px 12px;
 }
 
+/* ---------- Control de capas (empujado bajo el header fijo) ---------- */
+.leaflet-top.leaflet-right {
+    top: 64px;
+}
+
 /* ---------- Popups ---------- */
 .leaflet-popup-content-wrapper {
     border-radius: 10px;

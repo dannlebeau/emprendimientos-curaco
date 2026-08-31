@@ -44,8 +44,20 @@ const CATEGORY_LABELS = {
 
 const CURACO_CENTER = [-42.4180, -73.5650];
 
+// Orden geográfico sugerido del recorrido (no por categoría): sigue la
+// secuencia real de sectores de la ruta — San Javier → Changüitad → Huyar
+// Alto → centro → bifurcación hacia Achao → Palqui — en vez de agrupar por
+// rubro, que no refleja cómo se recorre físicamente la isla.
+const ROUTE_ORDER = [
+    'EC-01-CV', 'EC-02-CV', 'EC-15-CV',
+    'EC-04-CV', 'EC-03-CV', 'EC-05-CV', 'EC-06-CV', 'EC-07-CV',
+    'EC-08-CV', 'EC-16-CV',
+    'EC-10-CV', 'EC-09-CV', 'EC-12-CV', 'EC-13-CV'
+];
+
 let map;
 let markersLayer;
+let routeLayer;
 let markersByCode = {};
 let activeCategories = new Set(Object.keys(CATEGORY_COLORS));
 let allFeatures = [];
@@ -109,6 +121,37 @@ function addLegend() {
         return div;
     };
     legend.addTo(map);
+}
+
+function buildRouteLayer() {
+    const coordsByCode = {};
+    allFeatures.forEach(f => { coordsByCode[f.properties.codigo_ficha] = f.geometry.coordinates; });
+
+    const latlngs = ROUTE_ORDER
+        .map(code => coordsByCode[code])
+        .filter(Boolean)
+        .map(([lng, lat]) => [lat, lng]);
+
+    routeLayer = L.polyline(latlngs, {
+        color: '#37474f',
+        weight: 3,
+        opacity: 0.75,
+        dashArray: '2 10',
+        lineCap: 'round'
+    });
+}
+
+function setupRouteToggle() {
+    document.getElementById('routeToggle').addEventListener('change', (e) => {
+        if (e.target.checked) {
+            routeLayer.addTo(map);
+            if (window.innerWidth <= 640) {
+                document.getElementById('sidebar').classList.add('hidden');
+            }
+        } else {
+            map.removeLayer(routeLayer);
+        }
+    });
 }
 
 function makeIcon(categoria) {
@@ -276,11 +319,13 @@ async function loadData() {
     renderMarkers();
     renderSidebarList();
     renderPendientes(pend);
+    buildRouteLayer();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
     setupCategoryFilters();
     setupSidebarToggle();
+    setupRouteToggle();
     loadData();
 });

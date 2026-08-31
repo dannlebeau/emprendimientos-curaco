@@ -198,6 +198,32 @@ html, body {
 .category-chip[data-cat="guiado"].active { background: var(--color-guiado); }
 .category-chip[data-cat="hospedaje"].active { background: var(--color-hospedaje); }
 
+.route-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.route-toggle input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.route-toggle-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 4px 0 0;
+    line-height: 1.4;
+}
+
 .section-title {
     padding: 12px 16px 4px;
     font-size: 12px;

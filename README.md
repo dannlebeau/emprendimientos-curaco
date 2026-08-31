@@ -60,6 +60,12 @@ por ser la única disponible, marcada con `coordenadas_verificadas: false`.
 - **"Cómo llegar"**: cada punto enlaza directo a direcciones de Google Maps
   (`google.com/maps/dir/?api=1&destination=lat,lng`) — no requiere abrir la
   app de Maps por separado ni buscar la dirección a mano.
+- **Ruta sugerida** (toggle opcional en el sidebar): dibuja una línea que
+  conecta los 14 puntos en el **orden geográfico real del recorrido**
+  (San Javier → Changüitad → Huyar Alto → centro → bifurcación hacia Achao →
+  Palqui), no por categoría — conectarlos por rubro no representa cómo se
+  recorre físicamente la isla. Es una secuencia sugerida en línea recta entre
+  puntos, no una ruta calculada sobre caminos reales (ver "Qué falta" abajo).
 - **100% responsivo**: el sidebar se colapsa a pantalla completa en celular,
   el mapa ocupa toda la ventana.
 
@@ -131,7 +137,6 @@ hosting estático — no necesita configuración adicional.
 
 ```jsonc
 {
-  "descripcion": "...",
   "sin_coordenadas": [
     {
       "codigo_ficha": "EC-11-CV",
@@ -156,19 +161,24 @@ hosting estático — no necesita configuración adicional.
 3. **Cambia el color de una categoría nueva** → agregarla a `CATEGORY_COLORS`
    y `CATEGORY_LABELS` en `assets/js/map.js`, y su chip de filtro en
    `index.html` (`.category-filters`).
+4. **Entra a la ruta sugerida** → agregar su `codigo_ficha` en el lugar que
+   corresponda dentro del array `ROUTE_ORDER` en `assets/js/map.js` (sigue
+   el orden geográfico del recorrido, no el orden de las fichas).
 
 No hace falta tocar nada más: el mapa, el sidebar, la leyenda y los
 contadores se generan dinámicamente a partir de estos dos archivos.
 
 ## Qué falta (a propósito, no por omisión)
 
-- **Análisis territorial integrado**: conectividad entre atractivos, tiempos
-  reales de desplazamiento (caminos rurales, trasbordos) y accesibilidad
-  universal calculada. Hoy el mapa muestra solo la información de
-  accesibilidad ya descrita en cada ficha (ej. "acceso completo en
-  vehículo", "accesibilidad solo parcial") — no hay un motor de rutas
-  integrado. Implementarlo requiere decidir con qué servicio (OSRM propio,
-  Google Directions API, etc.) y si implica costo o llave de API.
+- **Análisis territorial integrado**: tiempos reales de desplazamiento
+  (caminos rurales, trasbordos) y accesibilidad universal calculada. La
+  "ruta sugerida" conecta los puntos en línea recta según su orden
+  geográfico, no sobre la red de caminos real, y no calcula tiempos ni
+  distancias de viaje. El mapa sí muestra la información de accesibilidad ya
+  descrita en cada ficha (ej. "acceso completo en vehículo", "accesibilidad
+  solo parcial"), pero un motor de rutas real requiere decidir con qué
+  servicio (OSRM propio, Google Directions API, etc.) y si implica costo o
+  llave de API.
 - **La ficha de Patricia Vargas**, que sigue en borrador. Falta que el
   municipio o la consultora la completen con nombre, RUT, ubicación y
   coordenadas para poder agregarla al mapa.

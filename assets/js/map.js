@@ -103,7 +103,11 @@ function initMap() {
     };
 
     L.control.layers(baseMaps, null, { position: 'topright', collapsed: true }).addTo(map);
-    L.control.zoom({ position: 'bottomleft' }).addTo(map);
+    // bottomright (no bottomleft): el sidebar ocupa toda la columna
+    // izquierda cuando está abierto -por defecto lo está- y taparía el
+    // control de zoom ahí. En bottomright queda apilado sobre la leyenda,
+    // zona que el sidebar nunca cubre.
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
     addLegend();
 
     markersLayer = L.layerGroup().addTo(map);
@@ -295,12 +299,25 @@ function setupCategoryFilters() {
 
 function setupSidebarToggle() {
     const sidebar = document.getElementById('sidebar');
-    document.getElementById('toggleSidebar').addEventListener('click', () => {
+    const toggleBtn = document.getElementById('toggleSidebar');
+
+    // El sidebar entra abierto por defecto, así que el ícono parte como
+    // flecha "colapsar" (◀) y cambia a "expandir" (▶) una vez cerrado.
+    const syncToggleIcon = () => {
+        toggleBtn.textContent = sidebar.classList.contains('hidden') ? '▶' : '◀';
+        toggleBtn.title = sidebar.classList.contains('hidden') ? 'Mostrar filtros' : 'Ocultar filtros';
+    };
+
+    toggleBtn.addEventListener('click', () => {
         sidebar.classList.toggle('hidden');
+        syncToggleIcon();
     });
     document.getElementById('closeSidebar').addEventListener('click', () => {
         sidebar.classList.add('hidden');
+        syncToggleIcon();
     });
+
+    syncToggleIcon();
 }
 
 async function loadData() {

@@ -55,12 +55,15 @@ const ROUTE_ORDER = [
     'EC-10-CV', 'EC-09-CV', 'EC-12-CV', 'EC-13-CV'
 ];
 
+const PHOTOS_BASE = './img/fotos';
+
 let map;
 let markersLayer;
 let routeLayer;
 let markersByCode = {};
 let activeCategories = new Set(Object.keys(CATEGORY_COLORS));
 let allFeatures = [];
+let photosByCode = {};
 
 function initMap() {
     map = L.map('map', { zoomControl: false }).setView(CURACO_CENTER, 12);
@@ -193,6 +196,19 @@ function listToHtml(items) {
     return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
 }
 
+function photoUrl(codigoFicha, filename) {
+    return `${PHOTOS_BASE}/${codigoFicha}/${filename}`;
+}
+
+function photoThumbsHtml(codigoFicha, fotos) {
+    if (!fotos || fotos.length === 0) return '';
+    const thumbs = fotos.map((f, i) =>
+        `<img class="photo-thumb" src="${photoUrl(codigoFicha, f)}" alt="Foto ${i + 1}" loading="lazy"
+              onclick="openPhotoModal('${codigoFicha}', ${i})">`
+    ).join('');
+    return `<div class="photo-thumbs">${thumbs}</div>`;
+}
+
 function popupHtml(props, lat, lng) {
     const gmapsDir = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     const gmapsView = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -221,6 +237,8 @@ function popupHtml(props, lat, lng) {
     if (props.potencial_integracion) {
         html += `<div class="popup-section-label">Integración a la ruta</div><p style="margin:2px 0;">${props.potencial_integracion}</p>`;
     }
+
+    html += photoThumbsHtml(props.codigo_ficha, props.fotos);
 
     html += `<div class="popup-actions">
         <a href="${gmapsDir}" target="_blank" rel="noopener">📍 Cómo llegar</a>
@@ -260,9 +278,16 @@ function renderSidebarList() {
         const card = document.createElement('div');
         card.className = 'emprendimiento-card';
         card.style.borderLeftColor = CATEGORY_COLORS[props.categoria] || '#455a64';
+        const thumb = (props.fotos && props.fotos.length)
+            ? `<img class="card-thumb" src="${photoUrl(props.codigo_ficha, props.fotos[0])}" alt="" loading="lazy"
+                    onclick="event.stopPropagation(); openPhotoModal('${props.codigo_ficha}', 0)">`
+            : '';
         card.innerHTML = `
-            <p class="card-title">${props.nombre_emprendimiento || props.nombre_emprendedor}</p>
-            <p class="card-meta">${CATEGORY_LABELS[props.categoria]} · ${props.ubicacion_sector}</p>
+            ${thumb}
+            <div class="card-body">
+                <p class="card-title">${props.nombre_emprendimiento || props.nombre_emprendedor}</p>
+                <p class="card-meta">${CATEGORY_LABELS[props.categoria]} · ${props.ubicacion_sector}</p>
+            </div>
         `;
         card.addEventListener('click', () => {
             const marker = markersByCode[props.codigo_ficha];
@@ -284,11 +309,58 @@ function renderPendientes(data) {
         card.className = 'emprendimiento-card pendiente-card';
         const nombre = item.nombre_emprendimiento || item.nombre_emprendedor || 'Emprendimiento sin datos';
         card.innerHTML = `
-            <p class="card-title">${nombre}</p>
-            <p class="card-meta">${item.rubro_principal || 'Rubro por confirmar'}</p>
-            <span class="badge">${item.estado_ficha}</span>
+            <div class="card-body">
+                <p class="card-title">${nombre}</p>
+                <p class="card-meta">${item.rubro_principal || 'Rubro por confirmar'}</p>
+                <span class="badge">${item.estado_ficha}</span>
+            </div>
         `;
         container.appendChild(card);
+    });
+}
+
+//=============== MODAL DE FOTOS (CARRUSEL) ===============//
+
+let currentPhotoSet = [];
+let currentPhotoIndex = 0;
+
+function renderCarouselPhoto() {
+    document.getElementById('photoModalImg').src = currentPhotoSet[currentPhotoIndex];
+    document.getElementById('photoModalCounter').textContent =
+        `${currentPhotoIndex + 1} / ${currentPhotoSet.length}`;
+}
+
+window.openPhotoModal = function (codigoFicha, startIndex = 0) {
+    const photos = photosByCode[codigoFicha];
+    if (!photos || photos.length === 0) return;
+    currentPhotoSet = photos;
+    currentPhotoIndex = startIndex;
+    renderCarouselPhoto();
+    document.getElementById('photoModal').classList.add('active');
+};
+
+function closePhotoModal() {
+    document.getElementById('photoModal').classList.remove('active');
+}
+
+function showNextPhoto() {
+    currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotoSet.length;
+    renderCarouselPhoto();
+}
+
+function showPrevPhoto() {
+    currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotoSet.length) % currentPhotoSet.length;
+    renderCarouselPhoto();
+}
+
+function setupPhotoModal() {
+    const modal = document.getElementById('photoModal');
+    document.getElementById('closePhotoModal').addEventListener('click', closePhotoModal);
+    document.getElementById('photoNext').addEventListener('click', showNextPhoto);
+    document.getElementById('photoPrev').addEventListener('click', showPrevPhoto);
+    // Cerrar al hacer click fuera de la imagen (en el fondo oscuro)
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closePhotoModal();
     });
 }
 
@@ -318,6 +390,13 @@ async function loadData() {
     const pend = await pendRes.json();
 
     allFeatures = geo.features;
+    photosByCode = {};
+    allFeatures.forEach(f => {
+        const { codigo_ficha, fotos } = f.properties;
+        if (fotos && fotos.length) {
+            photosByCode[codigo_ficha] = fotos.map(fname => photoUrl(codigo_ficha, fname));
+        }
+    });
 
     document.getElementById('countGeolocalizados').textContent = allFeatures.length;
     document.getElementById('countPendientes').textContent = (pend.sin_coordenadas || []).length;
@@ -333,5 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCategoryFilters();
     setupSidebarToggle();
     setupRouteToggle();
+    setupPhotoModal();
     loadData();
 });

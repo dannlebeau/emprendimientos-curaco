@@ -57,7 +57,7 @@
             <input type="checkbox" id="routeToggle">
             Mostrar ruta sugerida
         </label>
-        <p class="route-toggle-hint">Conecta los 14 puntos en el orden geográfico del recorrido, no por rubro.</p>
+        <p class="route-toggle-hint">Conecta los 15 puntos en el orden geográfico del recorrido, no por rubro.</p>
     </div>
 
     <div class="section-title">En el mapa</div>
@@ -68,6 +68,17 @@
 </div>
 
 <div id="map"></div>
+
+<!-- Modal de fotos (carrusel) -->
+<div id="photoModal" class="photo-modal">
+    <div class="photo-modal-content">
+        <button id="closePhotoModal" class="photo-modal-close" title="Cerrar">✕</button>
+        <button id="photoPrev" class="photo-modal-nav photo-modal-prev" title="Anterior">‹</button>
+        <img id="photoModalImg" src="" alt="Foto del emprendimiento">
+        <button id="photoNext" class="photo-modal-nav photo-modal-next" title="Siguiente">›</button>
+        <div id="photoModalCounter" class="photo-modal-counter"></div>
+    </div>
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="./assets/js/map.js"></script>

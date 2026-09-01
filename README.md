@@ -80,6 +80,13 @@ síntesis FODA — esas secciones llegaron en blanco en la ficha.
   ocultarlo) y **colapsable en celular** (≤640px), donde sí aparece un
   botón ☰ para mostrarlo/ocultarlo — necesario ahí porque el sidebar ocupa
   el ancho completo de la pantalla y taparía el mapa por completo.
+- **Galería de fotos** (13 de 15 emprendimientos, 57 fotos en total):
+  miniaturas en el popup del mapa y en la tarjeta del sidebar, que al
+  hacer clic abren un carrusel a pantalla completa con navegación
+  anterior/siguiente. Las fotos originales llegaron en HEIC (formato de
+  iPhone, sin soporte nativo en navegadores) — se convirtieron a JPEG,
+  redimensionaron a máx. 1600px y comprimieron a calidad 80 para que el
+  sitio cargue rápido incluso con datos móviles.
 
 ## Estructura del proyecto
 
@@ -88,10 +95,12 @@ Emprendimientos-Curaco/
 ├── index.html                              Página única de la aplicación
 ├── assets/
 │   ├── css/style.css                       Estilos (tema, sidebar, popups, leyenda)
-│   └── js/map.js                           Lógica del mapa (Leaflet, filtros, popups)
+│   └── js/map.js                           Lógica del mapa (Leaflet, filtros, popups, fotos)
 ├── data/
 │   ├── emprendimientos.geojson             Base georreferenciada — los 15 puntos del mapa
-│   └── emprendimientos_pendientes.json     Los 2 emprendimientos sin coordenadas
+│   └── emprendimientos_pendientes.json     El emprendimiento sin coordenadas (EC-11)
+├── img/
+│   └── fotos/EC-XX-CV/1.jpg, 2.jpg, ...    Fotos por emprendimiento (JPEG, máx. 1600px)
 └── README.md                               Este archivo
 ```
 
@@ -144,6 +153,7 @@ hosting estático — no necesita configuración adicional.
 | `sitio_web` | string \| null | Link externo del negocio, si tiene |
 | `estado_ficha` | string | `"completa"` u otro estado |
 | `fuente_documento` | string | Nombre del PDF de origen, para trazabilidad |
+| `fotos` | string[] (opcional) | Nombres de archivo (ej. `["1.jpg", "2.jpg"]`) dentro de `img/fotos/<codigo_ficha>/`. Ausente si el emprendimiento no tiene fotos cargadas. |
 
 ### `data/emprendimientos_pendientes.json`
 
@@ -176,6 +186,12 @@ hosting estático — no necesita configuración adicional.
 4. **Entra a la ruta sugerida** → agregar su `codigo_ficha` en el lugar que
    corresponda dentro del array `ROUTE_ORDER` en `assets/js/map.js` (sigue
    el orden geográfico del recorrido, no el orden de las fichas).
+5. **Le quieres agregar fotos** → crear la carpeta `img/fotos/<codigo_ficha>/`,
+   poner ahí los JPEG nombrados `1.jpg`, `2.jpg`, etc. (recomendado: máx.
+   1600px de lado mayor, calidad ~80 — si vienen en HEIC, hay que
+   convertirlas primero, los navegadores no lo soportan de forma nativa), y
+   agregar el array `"fotos": ["1.jpg", "2.jpg", ...]` a las `properties`
+   de ese `Feature` en `emprendimientos.geojson`.
 
 No hace falta tocar nada más: el mapa, el sidebar, la leyenda y los
 contadores se generan dinámicamente a partir de estos dos archivos.

@@ -32,7 +32,14 @@
         "necesidad_inversion": "Inversor y banco de baterías para el sistema fotovoltaico existente; renovación de equipamiento textil (ropa de cama) para 4 cabañas.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "01_PI_Mirna_Aguilante.docx.pdf"
+        "fuente_documento": "01_PI_Mirna_Aguilante.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
@@ -65,12 +72,19 @@
         "necesidad_inversion": "2 estufas a pellet para cabañas; cafetera profesional (activación de local tipo almacén como cafetería); vitrina de exhibición para productos locales.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "02_PI_Roxana_Mancilla.docx.pdf"
+        "fuente_documento": "02_PI_Roxana_Mancilla.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-73.60453, -42.44100] },
+      "geometry": { "type": "Point", "coordinates": [-73.60453, -42.441] },
       "properties": {
         "codigo_ficha": "EC-03-CV",
         "nombre_emprendedor": "Roxana Vásquez Alarcón",
@@ -126,7 +140,13 @@
         "necesidad_inversion": "Sistema de calefacción (estufas a pellet) para el salón comedor; rampa de acceso para personas con movilidad reducida; servicio de fotografía y video profesional.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "04_PI_Nelly_Alarcon.docx.pdf"
+        "fuente_documento": "04_PI_Nelly_Alarcon.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg"
+        ]
       }
     },
     {
@@ -161,7 +181,7 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-73.60100, -42.44062] },
+      "geometry": { "type": "Point", "coordinates": [-73.601, -42.44062] },
       "properties": {
         "codigo_ficha": "EC-06-CV",
         "nombre_emprendedor": "Lorenzo Artemio Paredes Gallardo",
@@ -188,7 +208,12 @@
         "necesidad_inversion": "Televisor (Smart TV ~43\"); juego de living para espacio de atención; accesorios para renovación de baño.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "06_PI_Artemio_Paredes.docx.pdf"
+        "fuente_documento": "06_PI_Artemio_Paredes.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg"
+        ]
       }
     },
     {
@@ -220,7 +245,12 @@
         "necesidad_inversion": "Lavaplatos profundo y mesón de acero inoxidable con cajones; superficie antideslizante y pasamanos reforzado para la escalera de acceso; renovación de mobiliario (20 sillas).",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "07_PI_Juan_Diaz.docx.pdf"
+        "fuente_documento": "07_PI_Juan_Diaz.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg"
+        ]
       }
     },
     {
@@ -252,12 +282,18 @@
         "necesidad_inversion": "Equipo de climatización (2 split frío/calor); alternativa: extractores de aire solar + renovación de equipamiento textil para cabañas.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "08_PI_Ramon_Sotomayor.docx.pdf"
+        "fuente_documento": "08_PI_Ramon_Sotomayor.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg"
+        ]
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-73.53090, -42.42906] },
+      "geometry": { "type": "Point", "coordinates": [-73.5309, -42.42906] },
       "properties": {
         "codigo_ficha": "EC-09-CV",
         "nombre_emprendedor": "Paola López Contreras",
@@ -285,7 +321,14 @@
         "necesidad_inversion": "Cámara trampa, microscopio óptico, binoculares, lupas y bastones de trekking para talleres educativos y experiencias guiadas; bomba pulverizadora para bioseguridad de senderos; guías de identificación de flora y fauna.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "09_PI_Paola_Lopez.docx.pdf"
+        "fuente_documento": "09_PI_Paola_Lopez.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
@@ -318,7 +361,14 @@
         "necesidad_inversion": "Ampliación de arneses de seguridad certificados para canopy/zip-line.",
         "sitio_web": "https://www.paventurachiloe.cl",
         "estado_ficha": "completa",
-        "fuente_documento": "PI_10_Claudio_Ilnao.pdf"
+        "fuente_documento": "PI_10_Claudio_Ilnao.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
@@ -352,7 +402,14 @@
         "necesidad_inversion": "Barandas de protección para la plataforma (prioridad de seguridad); binoculares fijos, toldos, mesas y sillas para zona de descanso.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "PI_12_Anival_Mancilla.pdf"
+        "fuente_documento": "PI_12_Anival_Mancilla.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
@@ -382,7 +439,13 @@
         "necesidad_inversion": "Cocina industrial (4 quemadores + horno) y churrasquera con freidora.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "13_PI_Ana_Maria_Mansilla.docx.pdf"
+        "fuente_documento": "13_PI_Ana_Maria_Mansilla.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg"
+        ]
       }
     },
     {
@@ -413,7 +476,13 @@
         "necesidad_inversion": "Inversor y baterías para el sistema de paneles solares.",
         "sitio_web": null,
         "estado_ficha": "parcial — coordenadas e infraestructura confirmadas; falta nombre completo del emprendedor/a, RUT y síntesis FODA (secciones en blanco en la ficha de origen)",
-        "fuente_documento": "14_PATRICIA VARGAS_Pendiente.pdf"
+        "fuente_documento": "14_PATRICIA VARGAS_Pendiente.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg"
+        ]
       }
     },
     {
@@ -444,7 +513,14 @@
         "necesidad_inversion": "Estufa a pellet (100 m²) con kit de instalación de techo.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "15_PI_Jaime_Prado.docx.pdf"
+        "fuente_documento": "15_PI_Jaime_Prado.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     },
     {
@@ -475,7 +551,14 @@
         "necesidad_inversion": "Estufa industrial para cocina, microondas y juguera.",
         "sitio_web": null,
         "estado_ficha": "completa",
-        "fuente_documento": "16_PI_Luis_Cardenas.docx.pdf"
+        "fuente_documento": "16_PI_Luis_Cardenas.docx.pdf",
+        "fotos": [
+          "1.jpg",
+          "2.jpg",
+          "3.jpg",
+          "4.jpg",
+          "5.jpg"
+        ]
       }
     }
   ]

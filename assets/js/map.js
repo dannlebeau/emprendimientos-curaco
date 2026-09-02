@@ -375,9 +375,6 @@ async function loadData() {
         }
     });
 
-    document.getElementById('countGeolocalizados').textContent = allFeatures.length;
-    document.getElementById('countPendientes').textContent = (pend.sin_coordenadas || []).length;
-
     renderMarkers();
     renderSidebarList();
     renderPendientes(pend);

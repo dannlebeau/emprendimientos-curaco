@@ -112,19 +112,6 @@ html, body {
     color: var(--text-muted);
 }
 
-.data-status-banner {
-    margin: 0 16px 12px;
-    padding: 10px 12px;
-    background: #fff8e1;
-    border: 1px solid #ffe082;
-    border-radius: 8px;
-    font-size: 12.5px;
-    line-height: 1.4;
-    color: #5d4037;
-}
-
-.data-status-banner strong { color: #e65100; }
-
 .filter-group {
     padding: 0 16px 12px;
 }

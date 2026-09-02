@@ -213,10 +213,6 @@ function popupHtml(props, lat, lng) {
         <p class="popup-rubro">${props.rubro_principal}</p>
         <p style="margin:0 0 6px;">${props.ubicacion_sector}</p>`;
 
-    if (props.nota_coordenadas) {
-        html += `<p style="margin:0 0 6px; font-size:11px; color:#e65100;">⚠ ${props.nota_coordenadas}</p>`;
-    }
-
     if (props.propuesta_valor) {
         html += `<p style="margin:6px 0;">${props.propuesta_valor}</p>`;
     }

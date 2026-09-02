@@ -39,10 +39,12 @@ coordenada ni dato inventado.**
 | ⚠️ Con ficha completa pero sin coordenadas | **1** | EC-11 (Kumelawen Spa — operación itinerante, sin dirección fija) |
 
 Este caso no se oculta: aparece en un panel aparte del sidebar
-("Pendientes de geolocalizar") con el motivo exacto de por qué no está en
+("Sin ubicación en el mapa") con el motivo exacto de por qué no está en
 el mapa. La coordenada de EC-12 (Muelle Chonos) viene marcada en su ficha
 original como *"[verificar con beneficiaria]"* — se incluyó de todas formas
-por ser la única disponible, marcada con `coordenadas_verificadas: false`.
+por ser la única disponible, marcada con `coordenadas_verificadas: false`
+(este detalle queda documentado en el dato, no como alerta visible en el
+popup del mapa).
 
 **EC-14 (Cabañas San Camilo, sector Huenao)** tiene una inconsistencia sin
 resolver: el documento de origen trae en su encabezado "Código de ficha:

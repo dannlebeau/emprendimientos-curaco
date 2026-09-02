@@ -255,15 +255,14 @@ html, body {
 }
 
 .pendiente-card .badge {
-    display: inline-block;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
     background: #eeeeee;
     color: #616161;
     border-radius: 4px;
-    padding: 2px 6px;
-    margin-top: 4px;
+    padding: 4px 6px;
+    margin-top: 6px;
 }
 
 /* ---------- Control de capas (empujado bajo el header fijo) ---------- */

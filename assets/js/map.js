@@ -191,11 +191,6 @@ function makeIcon(categoria) {
     });
 }
 
-function listToHtml(items) {
-    if (!items || items.length === 0) return '';
-    return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
-}
-
 function photoUrl(codigoFicha, filename) {
     return `${PHOTOS_BASE}/${codigoFicha}/${filename}`;
 }
@@ -222,31 +217,16 @@ function popupHtml(props, lat, lng) {
         html += `<p style="margin:0 0 6px; font-size:11px; color:#e65100;">⚠ ${props.nota_coordenadas}</p>`;
     }
 
-    if (props.fortalezas && props.fortalezas.length) {
-        html += `<div class="popup-section-label">Fortalezas</div>${listToHtml(props.fortalezas)}`;
-    }
-    if (props.brechas_equipamiento && props.brechas_equipamiento.length) {
-        html += `<div class="popup-section-label">Brechas de equipamiento</div>${listToHtml(props.brechas_equipamiento)}`;
-    }
-    if (props.brechas_normativas && props.brechas_normativas.length) {
-        html += `<div class="popup-section-label">Brechas normativas</div>${listToHtml(props.brechas_normativas)}`;
-    }
-    if (props.necesidad_inversion) {
-        html += `<div class="popup-section-label">Necesidad de inversión</div><p style="margin:2px 0;">${props.necesidad_inversion}</p>`;
-    }
-    if (props.potencial_integracion) {
-        html += `<div class="popup-section-label">Integración a la ruta</div><p style="margin:2px 0;">${props.potencial_integracion}</p>`;
+    if (props.propuesta_valor) {
+        html += `<p style="margin:6px 0;">${props.propuesta_valor}</p>`;
     }
 
     html += photoThumbsHtml(props.codigo_ficha, props.fotos);
 
     html += `<div class="popup-actions">
         <a href="${gmapsDir}" target="_blank" rel="noopener">📍 Cómo llegar</a>
-        <a href="${gmapsView}" target="_blank" rel="noopener" class="secondary">Ver en Google Maps</a>`;
-    if (props.sitio_web) {
-        html += `<a href="${props.sitio_web}" target="_blank" rel="noopener" class="secondary">🌐 Sitio web</a>`;
-    }
-    html += `</div></div>`;
+        <a href="${gmapsView}" target="_blank" rel="noopener" class="secondary">Ver en Google Maps</a>
+    </div></div>`;
 
     return html;
 }
@@ -312,7 +292,8 @@ function renderPendientes(data) {
             <div class="card-body">
                 <p class="card-title">${nombre}</p>
                 <p class="card-meta">${item.rubro_principal || 'Rubro por confirmar'}</p>
-                <span class="badge">${item.estado_ficha}</span>
+                ${item.propuesta_valor ? `<p class="card-meta" style="margin-top:4px;">${item.propuesta_valor}</p>` : ''}
+                <span class="badge">⚠ ${item.motivo_sin_coordenadas || 'Sin coordenadas'}</span>
             </div>
         `;
         container.appendChild(card);

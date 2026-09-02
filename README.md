@@ -13,10 +13,11 @@ Proyecto independiente — no depende de ningún otro repositorio.
 
 ## Qué es esto
 
-La consultora levantó una ficha técnica por cada emprendimiento de la ruta:
-quién es el beneficiario, dónde está, cuáles son sus fortalezas, qué brechas
-de equipamiento o normativas tiene, y qué inversión se propone para cerrarlas.
-Este proyecto toma esas 16 fichas y las convierte en:
+La consultora levantó una ficha técnica por cada emprendimiento de la ruta —
+quién es el beneficiario, dónde está y cuál es su propuesta de valor turística
+(qué ofrece, qué lo diferencia, capacidad de atención)— además de una reseña
+específica con la propuesta de valor redactada de cada uno de los 16 negocios.
+Este proyecto toma esa información y la convierte en:
 
 1. Una **base de datos georreferenciada** en formato estándar (GeoJSON),
    reutilizable en Google My Maps, QGIS, ArcGIS o cualquier otro SIG.
@@ -27,7 +28,7 @@ Este proyecto toma esas 16 fichas y las convierte en:
 
 Las **16 fichas** del programa (EC-01 a EC-16) fueron recibidas y revisadas
 una por una contra el documento original — cada dato (RUT, coordenadas,
-fortalezas, brechas) se extrajo del texto del PDF y, en los casos donde la
+propuesta de valor) se extrajo del texto del PDF y, en los casos donde la
 primera lectura no fue confiable, se verificó con una segunda extracción de
 texto independiente (`pdftotext`) antes de publicarse. **No hay ninguna
 coordenada ni dato inventado.**
@@ -49,8 +50,8 @@ resolver: el documento de origen trae en su encabezado "Código de ficha:
 distinto y en otra ubicación. Se mantuvo `EC-14-CV` según el nombre del
 archivo (`14_PATRICIA VARGAS_Pendiente.pdf`); queda pendiente confirmar con
 la consultora cuál código es el correcto (ver `nota_codigo_ficha` en su
-`Feature`). Tampoco trae el nombre completo del emprendedor/a, RUT ni la
-síntesis FODA — esas secciones llegaron en blanco en la ficha.
+`Feature`). Tampoco trae el nombre completo del emprendedor/a ni su RUT —
+esas secciones llegaron en blanco en la ficha.
 
 ## Funcionalidades
 
@@ -63,9 +64,9 @@ síntesis FODA — esas secciones llegaron en blanco en la ficha.
   Naturaleza, Hospedaje — togglea qué categorías se muestran en el mapa y en
   la lista.
 - **Ficha completa por emprendimiento** (clic en el mapa o en la lista del
-  sidebar): nombre, rubro, ubicación, fortalezas, brechas de equipamiento y
-  normativas, necesidad de inversión propuesta, y potencial de integración
-  con otros puntos de la ruta.
+  sidebar): nombre, rubro, ubicación y su propuesta de valor —qué ofrece,
+  qué lo diferencia, capacidad de atención— redactada a partir de la reseña
+  de cada negocio.
 - **"Cómo llegar"**: cada punto enlaza directo a direcciones de Google Maps
   (`google.com/maps/dir/?api=1&destination=lat,lng`) — no requiere abrir la
   app de Maps por separado ni buscar la dirección a mano.
@@ -145,14 +146,8 @@ hosting estático — no necesita configuración adicional.
 | `ubicacion_sector` | string | Dirección o sector, en texto libre |
 | `coordenadas_verificadas` | boolean | `false` si la ficha original marcaba la coordenada como pendiente de confirmar |
 | `nota_coordenadas` | string (opcional) | Aclaración cuando `coordenadas_verificadas` es `false` |
-| `fortalezas` | string[] | Viñetas de fortalezas clave del negocio |
-| `brechas_equipamiento` | string[] | Brechas de equipamiento o infraestructura |
-| `brechas_normativas` | string[] | Brechas normativas o sanitarias (patente, SERNATUR, formalización) |
-| `potencial_integracion` | string | Cómo se articula con el resto de la ruta |
-| `necesidad_inversion` | string | Resumen del plan de inversión propuesto |
-| `sitio_web` | string \| null | Link externo del negocio, si tiene |
-| `estado_ficha` | string | `"completa"` u otro estado |
-| `fuente_documento` | string | Nombre del PDF de origen, para trazabilidad |
+| `nota_codigo_ficha` | string (opcional) | Aclaración cuando el código de ficha del documento de origen entra en conflicto con otro ya asignado (ver caso EC-14) |
+| `propuesta_valor` | string | Descripción de la propuesta de valor del negocio: actividad principal, qué lo diferencia y su oferta comercial |
 | `fotos` | string[] (opcional) | Nombres de archivo (ej. `["1.jpg", "2.jpg"]`) dentro de `img/fotos/<codigo_ficha>/`. Ausente si el emprendimiento no tiene fotos cargadas. |
 
 ### `data/emprendimientos_pendientes.json`
@@ -164,8 +159,7 @@ hosting estático — no necesita configuración adicional.
       "codigo_ficha": "EC-11-CV",
       "nombre_emprendedor": "...",
       "motivo_sin_coordenadas": "...",   // por qué no está en el mapa
-      "estado_ficha": "...",
-      "fuente_documento": "..."
+      "propuesta_valor": "..."
     }
   ]
 }
@@ -202,15 +196,12 @@ contadores se generan dinámicamente a partir de estos dos archivos.
   (caminos rurales, trasbordos) y accesibilidad universal calculada. La
   "ruta sugerida" conecta los puntos en línea recta según su orden
   geográfico, no sobre la red de caminos real, y no calcula tiempos ni
-  distancias de viaje. El mapa sí muestra la información de accesibilidad ya
-  descrita en cada ficha (ej. "acceso completo en vehículo", "accesibilidad
-  solo parcial"), pero un motor de rutas real requiere decidir con qué
+  distancias de viaje. Un motor de rutas real requiere decidir con qué
   servicio (OSRM propio, Google Directions API, etc.) y si implica costo o
   llave de API.
 - **EC-14 (Cabañas San Camilo)** ya está en el mapa con coordenadas, pero
-  sigue faltando el nombre completo del emprendedor/a, su RUT y la síntesis
-  FODA — y queda pendiente resolver el conflicto de código de ficha descrito
-  arriba.
+  sigue faltando el nombre completo del emprendedor/a y su RUT — y queda
+  pendiente resolver el conflicto de código de ficha descrito arriba.
 
 ## Créditos
 
